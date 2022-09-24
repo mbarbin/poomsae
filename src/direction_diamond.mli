@@ -1,5 +1,7 @@
 open! Core
 
+(** A container indexed by all 4 cardinal directions. *)
+
 type 'a t =
   { north : 'a
   ; west : 'a
