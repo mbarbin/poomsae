@@ -1,6 +1,6 @@
 (library
- (name poomse)
- (public_name poomse)
+ (name poomsae)
+ (public_name poomsae)
  (flags -w +a-4-40-41-42-44-66 -warn-error +a)
  (libraries core)
  (preprocess

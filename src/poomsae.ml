@@ -26,7 +26,7 @@ let displacement_returns_to_origin t =
   else
     error_s
       [%sexp
-        "Poomse displacement does not return to origin"
+        "Poomsae displacement does not return to origin"
         , (t.name : string)
         , { displacement : Displacement.t }]
 ;;
@@ -38,7 +38,7 @@ let iter_consecutive_movements t ~f =
   |> (ignore : Movement.t option -> unit)
 ;;
 
-let poomse_1 =
+let poomsae_1 =
   create
     ~name:"TAE GEUG IL JANG"
     [ { direction = West
@@ -124,7 +124,7 @@ let poomse_1 =
     ]
 ;;
 
-let all = [ poomse_1 ]
+let all = [ poomsae_1 ]
 let hello_world = [%sexp "Hello, World!"]
 
 let print_cmd =

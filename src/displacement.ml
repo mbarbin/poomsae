@@ -3,7 +3,7 @@ open! Core
 module Linear_displacement = struct
   (* So far we didn't need to rely on a relationship between the
      linear displacement of different positions. This may change as we
-     add more poomse, to be determined. *)
+     add more poomsaes - to be determined. *)
   type t =
     { ap_seugui : int
     ; ap_koubi_seugui : int

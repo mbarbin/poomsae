@@ -15,19 +15,19 @@ val create : name:string -> Movement.t list -> t
 val name : t -> string
 val movements : t -> Movement.t list
 
-(** Utils on poomse *)
+(** Utils on poomsae *)
 
-(** Poomse is designed so that one returns to the original position at
+(** Poomsaes are designed so that one returns to the original position at
    the end of all combined displacements. *)
 val displacement_returns_to_origin : t -> unit Or_error.t
 
 val iter_consecutive_movements : t -> f:(Movement.t -> Movement.t -> unit) -> unit
 
-(** The first poomses *)
+(** The first poomsaes *)
 
-val poomse_1 : t
+val poomsae_1 : t
 
-(** All poomse *)
+(** All poomsaes *)
 
 val all : t list
 

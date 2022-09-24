@@ -18,10 +18,10 @@ let%expect_test "names" =
       ]
   in
   let rows =
-    List.mapi Poomse.all ~f:(fun i t ->
+    List.mapi Poomsae.all ~f:(fun i t ->
       { Row.number = i + 1
-      ; name = Poomse.name t
-      ; movements = List.length (Poomse.movements t)
+      ; name = Poomsae.name t
+      ; movements = List.length (Poomsae.movements t)
       })
   in
   Ascii_table.to_string columns rows |> print_endline;
@@ -36,10 +36,10 @@ let%expect_test "names" =
 
 let%expect_test "displacement_returns_to_origin" =
   (* We test that the function is capable of returning (Error _). The
-     case (Ok ()) is tested as part of each poomse analysis in their
+     case (Ok ()) is tested as part of each poomsae analysis in their
      respective files. *)
-  let poomse =
-    Poomse.create
+  let poomsae =
+    Poomsae.create
       ~name:"BOGUS"
       [ { direction = North
         ; position = Ap_Seugui { front_foot = Left }
@@ -55,11 +55,11 @@ let%expect_test "displacement_returns_to_origin" =
         }
       ]
   in
-  print_s [%sexp (Poomse.displacement_returns_to_origin poomse : unit Or_error.t)];
+  print_s [%sexp (Poomsae.displacement_returns_to_origin poomsae : unit Or_error.t)];
   [%expect
     {|
     (Error
-     ("Poomse displacement does not return to origin" BOGUS
+     ("Poomsae displacement does not return to origin" BOGUS
       ((displacement
         ((north ((ap_seugui 1) (ap_koubi_seugui 1)))
          (west ((ap_seugui 1) (ap_koubi_seugui 0)))

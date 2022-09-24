@@ -1,7 +1,7 @@
 (library
- (name poomse_test)
+ (name poomsae_test)
  (flags -w +a-4-40-41-42-44-66 -warn-error +a)
- (libraries core poomse textutils.ascii_table)
+ (libraries core poomsae textutils.ascii_table)
  (inline_tests)
  (preprocess
   (pps ppx_jane)))

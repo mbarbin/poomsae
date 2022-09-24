@@ -1,12 +1,12 @@
 opam-version: "2.0"
-synopsis: "Studying some Taekwondo poomse"
-description: "Studying some Taekwondo poomse"
+synopsis: "Studying some Taekwondo poomsae"
+description: "Studying some Taekwondo poomsae"
 maintainer: "Mathieu Barbin"
 authors: "Mathieu Barbin"
 license: "MIT"
-homepage: "https://github.com/mbarbin/poomse"
-doc: "https://github.com/mbarbin/poomse"
-bug-reports: "https://github.com/mbarbin/poomse/issues"
+homepage: "https://github.com/mbarbin/poomsae"
+doc: "https://github.com/mbarbin/poomsae"
+bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
   "ocaml" {>= "4.13"}
   "dune" {>= "2.0.0"}
@@ -20,4 +20,4 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
   ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
-dev-repo: "git+https://github.com/mbarbin/poomse.git"
+dev-repo: "git+https://github.com/mbarbin/poomsae.git"
