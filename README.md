@@ -29,9 +29,9 @@ to encode the techniques and the consecutive movements that constitute
 the Taegeuk poomsaes.
 
 The [test/](test/) directory contains a handful of statement of facts
-about the poomsaes and these are checked against their encoding. Here
-is an example of such statement: "In the first poomsae, all hand
-attacks are at the medium level (Momtong)".
+about the poomsaes which are checked against their encoding. Here is
+an example of such statement: "In the first poomsae, all hand attacks
+are at the medium level (Momtong)".
 
 ## Motivation
 
@@ -40,11 +40,11 @@ the poomsaes.
 
 ## Disclaimer
 
-I don't make any claim on the correctness of the information contains
-there, and make no promise that the representations that I have chosen
-are truthful to actual Taekwondo's technique.
+I don't make any claims regarding the correctness of the information
+contains here, and make no promise that the representations that I
+have chosen are truthful to actual Taekwondo's technique.
 
 ## Plans
 
 My plan is to try and cover all 8 Taegeuk poomsaes, and fix and refine
-the representations as I go along.
+the representations as I go along to make that possible.
