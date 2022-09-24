@@ -35,8 +35,10 @@ let%expect_test "positions" =
   Poomsae.iter_consecutive_movements poomsae ~f:(fun m1 m2 ->
     match
       match m2.position with
+      | Dwitt_Koubi _ -> Error ()
       | Ap_Seugui { front_foot } ->
         (match m1.position with
+         | Dwitt_Koubi _ -> Error ()
          | Ap_Koubi_Seugui { front_foot = previous_foot } ->
            if Poomsae.Side.equal previous_foot front_foot then Error () else Ok ()
          | Ap_Seugui { front_foot = previous_foot } ->
@@ -48,6 +50,7 @@ let%expect_test "positions" =
             | true, true | false, false -> Error ()))
       | Ap_Koubi_Seugui { front_foot } ->
         (match m1.position with
+         | Dwitt_Koubi _ -> Error ()
          | Ap_Seugui { front_foot = previous_foot } ->
            if Poomsae.Side.equal previous_foot front_foot then Ok () else Error ()
          | Ap_Koubi_Seugui { front_foot = previous_foot } ->
@@ -64,10 +67,12 @@ let%expect_test "positions" =
 ;;
 
 let%expect_test "hand attacks levels" =
-  (* All hand attacks are at mid level. *)
+  (* All hand attacks are at Jileugui at mid level. *)
   List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
     Poomsae.Technique.iter movement.technique ~f:(function
       | Block _ | Kick _ | Linked _ -> ()
+      | Hand_attack (Han_Sonnal_Mok_Tchigui { hand = Left | Right }) ->
+        raise_s [%sexp "Unexpected level", (movement : Poomsae.Movement.t)]
       | Hand_attack (Jileugui { hand = Left | Right; level }) ->
         if not (Poomsae.Level.equal level Momtong)
         then raise_s [%sexp "Unexpected level", (movement : Poomsae.Movement.t)]));
@@ -100,6 +105,8 @@ let%expect_test "Blocks level" =
         Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
           match technique with
           | Hand_attack _ | Kick _ | Linked _ -> level
+          | Block (Han_Sonnal_Maki _) ->
+            raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
           | Block (Maki { hand = Left | Right; level = next_level }) ->
             (match Poomsae.Level.compare level next_level |> Ordering.of_int with
              | Less | Equal -> next_level
@@ -122,11 +129,13 @@ let%expect_test "Blocks level" =
     | West | East -> ()
     | North | South ->
       (match movement.position with
-       | Ap_Seugui _ ->
+       | Ap_Seugui _ | Dwitt_Koubi _ ->
          raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)]
        | Ap_Koubi_Seugui { front_foot } ->
          Poomsae.Technique.iter movement.technique ~f:(function
            | Hand_attack _ | Kick _ | Linked _ -> ()
+           | Block (Han_Sonnal_Maki _) ->
+             raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
            | Block (Maki { hand; level }) ->
              if not (Poomsae.Side.equal hand front_foot && Poomsae.Level.equal level Ale)
              then raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)])));

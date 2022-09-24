@@ -27,6 +27,7 @@ val iter_consecutive_movements : t -> f:(Movement.t -> Movement.t -> unit) -> un
 
 val poomsae_1 : t
 val poomsae_2 : t
+val poomsae_3 : t
 
 (** All poomsaes *)
 

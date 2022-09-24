@@ -27,12 +27,13 @@ let%expect_test "names" =
   Ascii_table.to_string columns rows |> print_endline;
   [%expect
     {|
-    ┌────────┬──────────────────┬─────────────┐
-    │ Number │ Name             │ # Movements │
-    ├────────┼──────────────────┼─────────────┤
-    │      1 │ TAE GEUG IL JANG │          16 │
-    │      2 │ TAE GEUG YI JANG │          18 │
-    └────────┴──────────────────┴─────────────┘ |}]
+    ┌────────┬───────────────────┬─────────────┐
+    │ Number │ Name              │ # Movements │
+    ├────────┼───────────────────┼─────────────┤
+    │      1 │ TAE GEUG IL JANG  │          16 │
+    │      2 │ TAE GEUG YI JANG  │          18 │
+    │      3 │ TAE GEUG SAM JANG │          20 │
+    └────────┴───────────────────┴─────────────┘ |}]
 ;;
 
 let%expect_test "displacement_returns_to_origin" =
@@ -62,8 +63,8 @@ let%expect_test "displacement_returns_to_origin" =
     (Error
      ("Poomsae displacement does not return to origin" BOGUS
       ((displacement
-        ((north ((ap_seugui 1) (ap_koubi_seugui 1)))
-         (west ((ap_seugui 1) (ap_koubi_seugui 0)))
-         (east ((ap_seugui 0) (ap_koubi_seugui 0)))
-         (south ((ap_seugui 0) (ap_koubi_seugui 0)))))))) |}]
+        ((north ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 0)))
+         (west ((ap_seugui 1) (ap_koubi_seugui 0) (dwitt_koubi 0)))
+         (east ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)))
+         (south ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)))))))) |}]
 ;;
