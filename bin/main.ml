@@ -1,3 +1,3 @@
 open! Core
 
-let () = Command_unix.run Poomse.main
+let () = Command_unix.run Poomsae.main
