@@ -13,10 +13,23 @@ type t =
   { name : string
   ; movements : Movement.t list
   }
-[@@deriving sexp_of]
+[@@deriving fields, sexp_of]
 
 let create ~name movements = { name; movements }
-let name t = t.name
+
+let displacement_returns_to_origin t =
+  let displacement =
+    List.fold ~init:Displacement.origin t.movements ~f:Displacement.move
+  in
+  if Displacement.equal displacement Displacement.origin
+  then Ok ()
+  else
+    error_s
+      [%sexp
+        "Poomse displacement does not return to origin"
+        , (t.name : string)
+        , { displacement : Displacement.t }]
+;;
 
 let poomse_1 =
   create
