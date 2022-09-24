@@ -31,6 +31,7 @@ let%expect_test "names" =
     │ Number │ Name             │ # Movements │
     ├────────┼──────────────────┼─────────────┤
     │      1 │ TAE GEUG IL JANG │          16 │
+    │      2 │ TAE GEUG YI JANG │          18 │
     └────────┴──────────────────┴─────────────┘ |}]
 ;;
 

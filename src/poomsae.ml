@@ -124,7 +124,105 @@ let poomsae_1 =
     ]
 ;;
 
-let all = [ poomsae_1 ]
+let poomsae_2 =
+  create
+    ~name:"TAE GEUG YI JANG"
+    [ { direction = West
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ; { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Hand_attack (Jileugui { hand = Right; level = Momtong })
+      }
+    ; { direction = East
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Hand_attack (Jileugui { hand = Left; level = Momtong })
+      }
+    ; { direction = North
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Right; level = Momtong })
+      }
+    ; { direction = North
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Left; level = Momtong })
+      }
+    ; { direction = West
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ; { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Linked
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Right; level = Eulgoul })
+            ]
+      }
+    ; { direction = East
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Right; level = Ale })
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Linked
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Left; level = Eulgoul })
+            ]
+      }
+    ; { direction = North
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Eulgoul })
+      }
+    ; { direction = North
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Right; level = Eulgoul })
+      }
+    ; { direction = East (* Rotating going through South *)
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Right; level = Momtong })
+      }
+    ; { direction = West (* Rotating going through South *)
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Left; level = Momtong })
+      }
+    ; { direction = South
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ; { direction = South
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique =
+          Linked
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Right; level = Momtong })
+            ]
+      }
+    ; { direction = South
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique =
+          Linked
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Left; level = Momtong })
+            ]
+      }
+    ; { direction = South
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique =
+          Linked
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Right; level = Momtong })
+            ]
+      }
+    ]
+;;
+
+let all = [ poomsae_1; poomsae_2 ]
 let hello_world = [%sexp "Hello, World!"]
 
 let print_cmd =
