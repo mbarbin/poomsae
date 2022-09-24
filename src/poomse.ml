@@ -31,6 +31,13 @@ let displacement_returns_to_origin t =
         , { displacement : Displacement.t }]
 ;;
 
+let iter_consecutive_movements t ~f =
+  List.reduce t.movements ~f:(fun m1 m2 ->
+    f m1 m2;
+    m2)
+  |> (ignore : Movement.t option -> unit)
+;;
+
 let poomse_1 =
   create
     ~name:"TAE GEUG IL JANG"

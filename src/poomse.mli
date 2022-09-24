@@ -9,21 +9,27 @@ module Position = Position
 module Side = Side
 module Technique = Technique
 
-type t [@@deriving enumerate, sexp_of]
+type t [@@deriving sexp_of]
 
 val create : name:string -> Movement.t list -> t
 val name : t -> string
 val movements : t -> Movement.t list
-
-(** The first poomses *)
-
-val poomse_1 : t
 
 (** Utils on poomse *)
 
 (** Poomse is designed so that one returns to the original position at
    the end of all combined displacements. *)
 val displacement_returns_to_origin : t -> unit Or_error.t
+
+val iter_consecutive_movements : t -> f:(Movement.t -> Movement.t -> unit) -> unit
+
+(** The first poomses *)
+
+val poomse_1 : t
+
+(** All poomse *)
+
+val all : t list
 
 (** Command *)
 
