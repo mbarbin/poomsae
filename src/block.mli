@@ -8,7 +8,15 @@ type t =
       { hand : Side.t
       ; level : Level.t
       }
-  | Han_Sonnal_Maki of
+  | Bakkat_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
+  | Sonnal_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
+  | Han_Sonnal_Bakkat_Maki of
       { hand : Side.t
       ; level : Level.t
       }
