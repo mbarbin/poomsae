@@ -7,6 +7,6 @@ open! Core
 
 type t =
   | Ale (** Low *)
-  | Momtong (** Medium *)
+  | Montong (** Medium *)
   | Eulgoul (** High *)
 [@@deriving equal, compare, enumerate, hash, sexp_of]

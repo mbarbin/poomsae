@@ -2,6 +2,6 @@ open! Core
 
 type t =
   | Ale
-  | Momtong
+  | Montong
   | Eulgoul
 [@@deriving equal, compare, enumerate, hash, sexp_of]

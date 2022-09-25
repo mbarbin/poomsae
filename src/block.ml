@@ -5,7 +5,7 @@ module Kind = struct
     | Maki
     | Bakkat_Maki
     | Sonnal_Maki
-    | Han_Sonnal_Bakkat_Maki
+    | Han_Sonnal_Maki
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 end
 
@@ -22,7 +22,7 @@ type t =
       { hand : Side.t
       ; level : Level.t
       }
-  | Han_Sonnal_Bakkat_Maki of
+  | Han_Sonnal_Maki of
       { hand : Side.t
       ; level : Level.t
       }
@@ -32,5 +32,5 @@ let kind : t -> Kind.t = function
   | Maki _ -> Maki
   | Bakkat_Maki _ -> Bakkat_Maki
   | Sonnal_Maki _ -> Sonnal_Maki
-  | Han_Sonnal_Bakkat_Maki _ -> Han_Sonnal_Bakkat_Maki
+  | Han_Sonnal_Maki _ -> Han_Sonnal_Maki
 ;;
