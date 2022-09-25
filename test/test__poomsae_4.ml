@@ -25,7 +25,7 @@ let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions ()) (blocks (Bakkat_Maki Sonnal_Maki))
+    ((blocks (Bakkat_Maki Sonnal_Maki))
      (hand_attacks
       (Jebipoum_Mok_Tchigui Pyon_Sonn_Seo_Jileugui Deung_Joumok_Ap_Tchigui))
      (kicks (Yop_Tchagui))) |}]

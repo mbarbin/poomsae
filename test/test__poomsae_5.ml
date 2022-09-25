@@ -11,13 +11,13 @@ let%expect_test "name" =
 
 let%expect_test "elements" =
   print_s [%sexp (Poomsae.elements poomsae : Poomsae.Elements.t)];
-  [%expect {| ((positions ()) (blocks ()) (hand_attacks ()) (kicks ())) |}]
+  [%expect {| () |}]
 ;;
 
 let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
   [%expect {|
-    ((positions ()) (blocks ()) (hand_attacks ()) (kicks ())) |}]
+    () |}]
 ;;
 
 let%expect_test "displacement" =

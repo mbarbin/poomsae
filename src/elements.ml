@@ -1,10 +1,10 @@
 open! Core
 
 type t =
-  { positions : Set.M(Position.Kind).t
-  ; blocks : Set.M(Block.Kind).t
-  ; hand_attacks : Set.M(Hand_attack.Kind).t
-  ; kicks : Set.M(Kick.Kind).t
+  { positions : Set.M(Position.Kind).t [@sexp_drop_if Set.is_empty]
+  ; blocks : Set.M(Block.Kind).t [@sexp_drop_if Set.is_empty]
+  ; hand_attacks : Set.M(Hand_attack.Kind).t [@sexp_drop_if Set.is_empty]
+  ; kicks : Set.M(Kick.Kind).t [@sexp_drop_if Set.is_empty]
   }
 [@@deriving sexp_of]
 

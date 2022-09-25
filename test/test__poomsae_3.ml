@@ -23,7 +23,7 @@ let%expect_test "new elements" =
   [%expect
     {|
     ((positions (Dwitt_Koubi)) (blocks (Han_Sonnal_Maki))
-     (hand_attacks (Han_Sonnal_Mok_Tchigui)) (kicks ())) |}]
+     (hand_attacks (Han_Sonnal_Mok_Tchigui))) |}]
 ;;
 
 let%expect_test "displacement" =
