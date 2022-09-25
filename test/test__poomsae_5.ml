@@ -33,3 +33,13 @@ let%expect_test "directions" =
        print_s [%sexp (directions : Poomsae.Direction.t list)]);
   [%expect {| |}]
 ;;
+
+let%expect_test "trigram" =
+  let trigram = Poomsae.Trigram.compute (Poomsae.movements poomsae) in
+  Or_error.iter trigram ~f:(fun t ->
+    t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
+  [%expect {||}];
+  print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
+  [%expect {|
+    (Error ("Unexpected displacements" ((lateral_displacements ())))) |}]
+;;

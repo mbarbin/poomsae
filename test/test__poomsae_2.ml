@@ -43,3 +43,21 @@ let%expect_test "directions" =
     (East West)
     (South South South South) |}]
 ;;
+
+let%expect_test "trigram" =
+  let trigram = Poomsae.Trigram.compute (Poomsae.movements poomsae) in
+  Or_error.iter trigram ~f:(fun t ->
+    t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
+  [%expect {|
+    --  --
+    ------
+    ------
+  |}];
+  print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
+  [%expect
+    {|
+    (Ok
+     (((top_line Two_parts) (middle_line Plain) (bottom_line Plain))
+      ((lateral_displacements
+        ((4 ((west 0) (east 1))) (2 ((west 4) (east 0))) (0 ((west 4) (east 0)))))))) |}]
+;;

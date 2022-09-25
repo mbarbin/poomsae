@@ -9,6 +9,7 @@ module Movement = Movement
 module Position = Position
 module Side = Side
 module Technique = Technique
+module Trigram = Trigram
 
 type t [@@deriving sexp_of]
 
