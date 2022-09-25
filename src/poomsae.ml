@@ -139,7 +139,7 @@ let poomsae_2 =
       }
     ; { direction = East
       ; position = Ap_Seugui { front_foot = Right }
-      ; technique = Block (Maki { hand = Left; level = Ale })
+      ; technique = Block (Maki { hand = Right; level = Ale })
       }
     ; { direction = East
       ; position = Ap_Koubi_Seugui { front_foot = Left }
