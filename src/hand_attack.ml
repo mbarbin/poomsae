@@ -5,8 +5,8 @@ module Kind = struct
     | Jileugui
     | Han_Sonnal_Mok_Tchigui
     | Jebipoum_Mok_Tchigui
-    | Batangson_Nelyeu_Maki
-    | Deung_Jumok_Ap_Tchigui
+    | Pyon_Sonn_Seo_Jileugui
+    | Deung_Joumok_Ap_Tchigui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 end
 
@@ -17,8 +17,8 @@ type t =
       }
   | Han_Sonnal_Mok_Tchigui of { hand : Side.t }
   | Jebipoum_Mok_Tchigui of { hand : Side.t }
-  | Batangson_Nelyeu_Maki of { hand : Side.t }
-  | Deung_Jumok_Ap_Tchigui of
+  | Pyon_Sonn_Seo_Jileugui of { hand : Side.t }
+  | Deung_Joumok_Ap_Tchigui of
       { hand : Side.t
       ; level : Level.t
       }
@@ -28,6 +28,6 @@ let kind : t -> Kind.t = function
   | Jileugui _ -> Jileugui
   | Han_Sonnal_Mok_Tchigui _ -> Han_Sonnal_Mok_Tchigui
   | Jebipoum_Mok_Tchigui _ -> Jebipoum_Mok_Tchigui
-  | Batangson_Nelyeu_Maki _ -> Batangson_Nelyeu_Maki
-  | Deung_Jumok_Ap_Tchigui _ -> Deung_Jumok_Ap_Tchigui
+  | Pyon_Sonn_Seo_Jileugui _ -> Pyon_Sonn_Seo_Jileugui
+  | Deung_Joumok_Ap_Tchigui _ -> Deung_Joumok_Ap_Tchigui
 ;;

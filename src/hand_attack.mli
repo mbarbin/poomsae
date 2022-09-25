@@ -5,8 +5,8 @@ module Kind : sig
     | Jileugui
     | Han_Sonnal_Mok_Tchigui
     | Jebipoum_Mok_Tchigui
-    | Batangson_Nelyeu_Maki
-    | Deung_Jumok_Ap_Tchigui
+    | Pyon_Sonn_Seo_Jileugui
+    | Deung_Joumok_Ap_Tchigui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 end
 
@@ -17,8 +17,8 @@ type t =
       }
   | Han_Sonnal_Mok_Tchigui of { hand : Side.t }
   | Jebipoum_Mok_Tchigui of { hand : Side.t }
-  | Batangson_Nelyeu_Maki of { hand : Side.t }
-  | Deung_Jumok_Ap_Tchigui of
+  | Pyon_Sonn_Seo_Jileugui of { hand : Side.t }
+  | Deung_Joumok_Ap_Tchigui of
       { hand : Side.t
       ; level : Level.t
       }
