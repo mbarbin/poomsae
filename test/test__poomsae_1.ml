@@ -78,9 +78,9 @@ let%expect_test "hand attacks levels" =
       | Block _ | Kick _ | Linked _ -> ()
       | Hand_attack
           ( Han_Sonnal_Mok_Tchigui { hand = Left | Right }
-          | Jepiboum_Mok_Tchigui { hand = Left | Right }
-          | Batanson_Neulou_Maki { hand = Left | Right }
-          | Dung_Joumok_Ap_Tchigui { hand = Left | Right; level = _ } ) ->
+          | Jebipoum_Mok_Tchigui { hand = Left | Right }
+          | Batangson_Nelyeu_Maki { hand = Left | Right }
+          | Deung_Jumok_Ap_Tchigui { hand = Left | Right; level = _ } ) ->
         raise_s [%sexp "Unexpected level", (movement : Poomsae.Movement.t)]
       | Hand_attack (Jileugui { hand = Left | Right; level }) ->
         if not (Poomsae.Level.equal level Momtong)

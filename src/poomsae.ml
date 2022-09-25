@@ -355,7 +355,7 @@ let poomsae_4 =
       }
     ; { direction = West
       ; position = Ap_Koubi_Seugui { front_foot = Right }
-      ; technique = Hand_attack (Batanson_Neulou_Maki { hand = Right })
+      ; technique = Hand_attack (Batangson_Nelyeu_Maki { hand = Right })
       }
     ; { direction = East
       ; position = Dwitt_Koubi { front_foot = Right }
@@ -363,11 +363,11 @@ let poomsae_4 =
       }
     ; { direction = East
       ; position = Ap_Koubi_Seugui { front_foot = Left }
-      ; technique = Hand_attack (Batanson_Neulou_Maki { hand = Left })
+      ; technique = Hand_attack (Batangson_Nelyeu_Maki { hand = Left })
       }
     ; { direction = North
       ; position = Ap_Koubi_Seugui { front_foot = Left }
-      ; technique = Hand_attack (Jepiboum_Mok_Tchigui { hand = Right })
+      ; technique = Hand_attack (Jebipoum_Mok_Tchigui { hand = Right })
       }
     ; { direction = North
       ; position = Ap_Koubi_Seugui { front_foot = Right }
@@ -412,14 +412,14 @@ let poomsae_4 =
       }
     ; { direction = South
       ; position = Ap_Koubi_Seugui { front_foot = Left }
-      ; technique = Hand_attack (Jepiboum_Mok_Tchigui { hand = Right })
+      ; technique = Hand_attack (Jebipoum_Mok_Tchigui { hand = Right })
       }
     ; { direction = South
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
           Linked
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
-            ; Hand_attack (Dung_Joumok_Ap_Tchigui { hand = Right; level = Eulgoul })
+            ; Hand_attack (Deung_Jumok_Ap_Tchigui { hand = Right; level = Eulgoul })
             ]
       }
     ; { direction = East
