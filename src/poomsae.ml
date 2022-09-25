@@ -346,7 +346,24 @@ let poomsae_3 =
     ]
 ;;
 
-let all = [ poomsae_1; poomsae_2; poomsae_3 ]
+let poomsae_4 = create ~name:"TAE GEUG SA JANG" []
+let poomsae_5 = create ~name:"TAE GEUG OH JANG" []
+let poomsae_6 = create ~name:"TAE GEUG YOOK JANG" []
+let poomsae_7 = create ~name:"TAE GEUG CHIL JANG" []
+let poomsae_8 = create ~name:"TAE GEUG PAL JANG" []
+
+let all =
+  [ poomsae_1
+  ; poomsae_2
+  ; poomsae_3
+  ; poomsae_4
+  ; poomsae_5
+  ; poomsae_6
+  ; poomsae_7
+  ; poomsae_8
+  ]
+;;
+
 let hello_world = [%sexp "Hello, World!"]
 
 let print_cmd =

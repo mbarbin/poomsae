@@ -1,10 +1,10 @@
 open! Core
 
-let poomsae = Poomsae.poomsae_2
+let poomsae = Poomsae.poomsae_6
 
 let%expect_test "name" =
   print_string (Poomsae.name poomsae);
-  [%expect {| TAE GEUG YI JANG |}]
+  [%expect {| TAE GEUG YOOK JANG |}]
 ;;
 
 (* Some facts about this poomsae. *)

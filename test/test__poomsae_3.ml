@@ -2,6 +2,11 @@ open! Core
 
 let poomsae = Poomsae.poomsae_3
 
+let%expect_test "name" =
+  print_string (Poomsae.name poomsae);
+  [%expect {| TAE GEUG SAM JANG |}]
+;;
+
 (* Some facts about this poomsae. *)
 
 let%expect_test "displacement" =

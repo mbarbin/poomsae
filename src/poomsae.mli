@@ -23,14 +23,18 @@ val displacement_returns_to_origin : t -> unit Or_error.t
 
 val iter_consecutive_movements : t -> f:(Movement.t -> Movement.t -> unit) -> unit
 
-(** The first poomsaes. *)
+(** The first 8 poomsaes. *)
 
 val poomsae_1 : t
 val poomsae_2 : t
 val poomsae_3 : t
+val poomsae_4 : t
+val poomsae_5 : t
+val poomsae_6 : t
+val poomsae_7 : t
+val poomsae_8 : t
 
 (** All poomsaes *)
-
 val all : t list
 
 (** Command *)
