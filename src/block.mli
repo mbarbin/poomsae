@@ -10,6 +10,8 @@ module Kind : sig
     | Sonnal_Maki
     | Han_Sonnal_Maki
   [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+  include Comparable.S_plain with type t := t
 end
 
 type t =

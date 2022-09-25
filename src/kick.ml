@@ -1,10 +1,15 @@
 open! Core
 
 module Kind = struct
-  type t =
-    | Ap_Tchagui
-    | Yop_Tchagui
-  [@@deriving equal, compare, enumerate, hash, sexp_of]
+  module T = struct
+    type t =
+      | Ap_Tchagui
+      | Yop_Tchagui
+    [@@deriving equal, compare, enumerate, hash, sexp_of]
+  end
+
+  include T
+  include Comparable.Make_plain (T)
 end
 
 type t =

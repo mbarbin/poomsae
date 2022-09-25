@@ -8,6 +8,8 @@ module Kind : sig
     | Pyon_Sonn_Seo_Jileugui
     | Deung_Joumok_Ap_Tchigui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+  include Comparable.S_plain with type t := t
 end
 
 type t =

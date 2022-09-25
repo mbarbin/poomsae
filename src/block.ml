@@ -1,12 +1,17 @@
 open! Core
 
 module Kind = struct
-  type t =
-    | Maki
-    | Bakkat_Maki
-    | Sonnal_Maki
-    | Han_Sonnal_Maki
-  [@@deriving equal, compare, enumerate, hash, sexp_of]
+  module T = struct
+    type t =
+      | Maki
+      | Bakkat_Maki
+      | Sonnal_Maki
+      | Han_Sonnal_Maki
+    [@@deriving equal, compare, enumerate, hash, sexp_of]
+  end
+
+  include T
+  include Comparable.Make_plain (T)
 end
 
 type t =

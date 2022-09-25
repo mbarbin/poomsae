@@ -1,6 +1,7 @@
 open! Core
 module Block = Block
 module Direction = Direction
+module Elements = Elements
 module Hand_attack = Hand_attack
 module Kick = Kick
 module Level = Level
@@ -16,6 +17,7 @@ type t =
 [@@deriving fields, sexp_of]
 
 let create ~name movements = { name; movements }
+let elements t = List.fold t.movements ~init:Elements.empty ~f:Elements.add_movement
 
 let displacement_returns_to_origin t =
   let displacement =
@@ -474,6 +476,22 @@ let all =
   ; poomsae_7
   ; poomsae_8
   ]
+;;
+
+let preceding_poomsaes t =
+  let rec aux acc = function
+    | [] -> List.rev acc
+    | hd :: tl -> if phys_equal hd t then aux acc [] else aux (hd :: acc) tl
+  in
+  aux [] all
+;;
+
+let new_elements t =
+  let preceding_elements =
+    List.fold (preceding_poomsaes t) ~init:Elements.empty ~f:(fun acc t ->
+      Elements.union acc (elements t))
+  in
+  Elements.diff (elements t) preceding_elements
 ;;
 
 let hello_world = [%sexp "Hello, World!"]

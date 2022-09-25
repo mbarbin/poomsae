@@ -1,13 +1,18 @@
 open! Core
 
 module Kind = struct
-  type t =
-    | Jileugui
-    | Han_Sonnal_Mok_Tchigui
-    | Jebipoum_Mok_Tchigui
-    | Pyon_Sonn_Seo_Jileugui
-    | Deung_Joumok_Ap_Tchigui
-  [@@deriving equal, compare, enumerate, hash, sexp_of]
+  module T = struct
+    type t =
+      | Jileugui
+      | Han_Sonnal_Mok_Tchigui
+      | Jebipoum_Mok_Tchigui
+      | Pyon_Sonn_Seo_Jileugui
+      | Deung_Joumok_Ap_Tchigui
+    [@@deriving equal, compare, enumerate, hash, sexp_of]
+  end
+
+  include T
+  include Comparable.Make_plain (T)
 end
 
 type t =

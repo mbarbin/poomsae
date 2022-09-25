@@ -5,6 +5,8 @@ module Kind : sig
     | Ap_Tchagui
     | Yop_Tchagui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+  include Comparable.S_plain with type t := t
 end
 
 type t =

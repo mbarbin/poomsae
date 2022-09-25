@@ -6,6 +6,8 @@ module Kind : sig
     | Ap_Koubi_Seugui
     | Dwitt_Koubi
   [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+  include Comparable.S_plain with type t := t
 end
 
 type t =
