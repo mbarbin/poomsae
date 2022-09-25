@@ -1,5 +1,12 @@
 open! Core
 
+module Kind = struct
+  type t =
+    | Ap_Tchagui
+    | Yop_Tchagui
+  [@@deriving equal, compare, enumerate, hash, sexp_of]
+end
+
 type t =
   | Ap_Tchagui of
       { foot : Side.t
@@ -10,3 +17,8 @@ type t =
       ; level : Level.t
       }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+let kind : t -> Kind.t = function
+  | Ap_Tchagui _ -> Ap_Tchagui
+  | Yop_Tchagui _ -> Yop_Tchagui
+;;
