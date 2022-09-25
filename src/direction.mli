@@ -10,3 +10,13 @@ type t =
   | East
   | South
 [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+module Axis : sig
+  type t =
+    | West_East
+    | North_South
+  [@@deriving equal, compare, enumerate, hash, sexp_of]
+end
+
+val axis : t -> Axis.t
+val group_by_axis : t list -> t list list

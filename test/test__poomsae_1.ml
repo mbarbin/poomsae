@@ -96,7 +96,7 @@ let%expect_test "positions" =
 ;;
 
 let%expect_test "hand attacks levels" =
-  (* All hand attacks are at Jileugui at mid level. *)
+  (* All hand attacks are Jileugui at mid level. *)
   List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
     Poomsae.Technique.iter movement.technique ~f:(function
       | Block _ | Kick _ | Linked _ -> ()
@@ -125,7 +125,7 @@ let%expect_test "kicks levels" =
   [%expect {||}]
 ;;
 
-let%expect_test "Blocks level" =
+let%expect_test "blocks level" =
   (* All blocks that happen on the West and East direction are in
      largely increasing levels throughout the poomsae, starting from
      the lower level and going up to the highest level. *)
@@ -176,4 +176,19 @@ let%expect_test "Blocks level" =
              then raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)])));
   [%expect {||}];
   ()
+;;
+
+let%expect_test "directions" =
+  List.map (Poomsae.movements poomsae) ~f:(fun t -> t.direction)
+  |> Poomsae.Direction.group_by_axis
+  |> List.iter ~f:(fun directions ->
+       print_s [%sexp (directions : Poomsae.Direction.t list)]);
+  [%expect
+    {|
+    (West West East East)
+    (North)
+    (East East West West)
+    (North)
+    (West West East East)
+    (South South) |}]
 ;;

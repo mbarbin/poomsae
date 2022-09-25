@@ -44,3 +44,18 @@ let%expect_test "displacement" =
          (east ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 3)))
          (south ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 0)))))))) |}]
 ;;
+
+let%expect_test "directions" =
+  List.map (Poomsae.movements poomsae) ~f:(fun t -> t.direction)
+  |> Poomsae.Direction.group_by_axis
+  |> List.iter ~f:(fun directions ->
+       print_s [%sexp (directions : Poomsae.Direction.t list)]);
+  [%expect
+    {|
+    (West West East East)
+    (North North North)
+    (East East West West)
+    (South South)
+    (East West)
+    (South South) |}]
+;;
