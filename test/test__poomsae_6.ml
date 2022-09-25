@@ -4,7 +4,7 @@ let poomsae = Poomsae.poomsae_6
 
 let%expect_test "name" =
   print_string (Poomsae.name poomsae);
-  [%expect {| TAE GEUG YOOK JANG |}]
+  [%expect {| TAE GEUG YOUK JANG |}]
 ;;
 
 (* Some facts about this poomsae. *)

@@ -27,18 +27,18 @@ let%expect_test "names" =
   Ascii_table.to_string columns rows |> print_endline;
   [%expect
     {|
-    ┌────────┬────────────────────┬─────────────┐
-    │ Number │ Name               │ # Movements │
-    ├────────┼────────────────────┼─────────────┤
-    │      1 │ TAE GEUG IL JANG   │          16 │
-    │      2 │ TAE GEUG YI JANG   │          18 │
-    │      3 │ TAE GEUG SAM JANG  │          20 │
-    │      4 │ TAE GEUG SA JANG   │          17 │
-    │      5 │ TAE GEUG OH JANG   │           0 │
-    │      6 │ TAE GEUG YOOK JANG │           0 │
-    │      7 │ TAE GEUG CHIL JANG │           0 │
-    │      8 │ TAE GEUG PAL JANG  │           0 │
-    └────────┴────────────────────┴─────────────┘ |}]
+    ┌────────┬─────────────────────┬─────────────┐
+    │ Number │ Name                │ # Movements │
+    ├────────┼─────────────────────┼─────────────┤
+    │      1 │ TAE GEUG IL JANG    │          16 │
+    │      2 │ TAE GEUG YI JANG    │          18 │
+    │      3 │ TAE GEUG SAM JANG   │          20 │
+    │      4 │ TAE GEUG SA JANG    │          17 │
+    │      5 │ TAE GEUG OH JANG    │           0 │
+    │      6 │ TAE GEUG YOUK JANG  │           0 │
+    │      7 │ TAE GEUG TCHIL JANG │           0 │
+    │      8 │ TAE GEUG PAL JANG   │           0 │
+    └────────┴─────────────────────┴─────────────┘ |}]
 ;;
 
 let%expect_test "displacement_returns_to_origin" =

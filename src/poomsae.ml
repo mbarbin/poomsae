@@ -460,8 +460,8 @@ let poomsae_4 =
 ;;
 
 let poomsae_5 = create ~name:"TAE GEUG OH JANG" []
-let poomsae_6 = create ~name:"TAE GEUG YOOK JANG" []
-let poomsae_7 = create ~name:"TAE GEUG CHIL JANG" []
+let poomsae_6 = create ~name:"TAE GEUG YOUK JANG" []
+let poomsae_7 = create ~name:"TAE GEUG TCHIL JANG" []
 let poomsae_8 = create ~name:"TAE GEUG PAL JANG" []
 
 let all =
