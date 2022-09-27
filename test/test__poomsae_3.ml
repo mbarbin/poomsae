@@ -63,8 +63,8 @@ let%expect_test "mirror movements" =
     ((North c) (North c'))
     ((West d) (West e) (East d') (East e'))
     ((North f) (North f'))
-    ((East a) (East b) (West g) (West b'))
-    ((South h) (South h') (South i) (South i')) |}]
+    ((East a) (East b) (West a') (West b'))
+    ((South g) (South g') (South h) (South h')) |}]
 ;;
 
 let%expect_test "trigram" =
