@@ -71,7 +71,8 @@ let%expect_test "mirror movements" =
       List.map movements ~f:(fun (m, maybe_mirror) -> m.direction, maybe_mirror)
     in
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
-  [%expect {|
+  [%expect
+    {|
     ((West a) (West b) (East a') (East b'))
     ((North c) (North d) (North e))
     ((East f) (East g) (West f') (West g'))
