@@ -29,6 +29,112 @@ let%expect_test "displacement" =
   [%expect {| (Ok ()) |}]
 ;;
 
+let%expect_test "positions" =
+  (* On the North and South, all positions are [Ap_Seugui]. On the
+     West and East, the first is always an [Ap_Seugui], and if there's
+     a second movement that follows, it is an [Ap_Koubi_Seugui]. *)
+  let assert_ap_seugui (movement : Poomsae.Movement.t) =
+    match movement.position with
+    | Ap_Seugui _ -> ()
+    | _ -> raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)]
+  and assert_ap_koubi_seugui (movement : Poomsae.Movement.t) =
+    match movement.position with
+    | Ap_Koubi_Seugui _ -> ()
+    | _ -> raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)]
+  in
+  List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
+    match movement.direction with
+    | North | South -> assert_ap_seugui movement
+    | West | East -> ());
+  Poomsae.iter_consecutive_movements poomsae ~f:(fun m1 m2 ->
+    match m1.direction, m2.direction with
+    | East, East | West, West ->
+      assert_ap_seugui m1;
+      assert_ap_koubi_seugui m2
+    | _ -> ());
+  (* The front foot is characterized by position change between consecutive movements. *)
+  Poomsae.iter_consecutive_movements poomsae ~f:(fun m1 m2 ->
+    match
+      match m1.position, m2.position with
+      | ( Ap_Seugui { front_foot = f1 }
+        , (Ap_Koubi_Seugui { front_foot = f2 } | Ap_Seugui { front_foot = f2 }) )
+      | Ap_Koubi_Seugui { front_foot = f1 }, Ap_Koubi_Seugui { front_foot = f2 } ->
+        not (Poomsae.Side.equal f1 f2)
+      | Ap_Koubi_Seugui { front_foot = f1 }, Ap_Seugui { front_foot = f2 } ->
+        Poomsae.Side.equal f1 f2
+      | _ -> true
+    with
+    | true -> ()
+    | false ->
+      raise_s
+        [%sexp
+          "Unexpected position change"
+          , { m1 : Poomsae.Movement.t; m2 : Poomsae.Movement.t }]);
+  ()
+;;
+
+let%expect_test "blocks level" =
+  (* All blocks that happen on the North direction are in largely
+     increasing levels throughout the poomsae, starting from mid level
+     going up to the highest level. *)
+  let level =
+    List.fold
+      (Poomsae.movements poomsae)
+      ~init:Poomsae.Level.Montong
+      ~f:(fun level movement ->
+      match movement.direction with
+      | West | East | South -> level
+      | North ->
+        Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
+          match technique with
+          | Hand_attack _ | Kick _ | Linked _ -> level
+          | Block (Han_Sonnal_Maki _ | Bakkat_Maki _ | Sonnal_Maki _) ->
+            raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
+          | Block (Maki { hand = Left | Right; level = next_level }) ->
+            (match Poomsae.Level.compare level next_level |> Ordering.of_int with
+             | Less | Equal -> next_level
+             | Greater ->
+               raise_s
+                 [%sexp
+                   "Unexpected level"
+                   , (movement : Poomsae.Movement.t)
+                   , { previous_level = (level : Poomsae.Level.t)
+                     ; next_level : Poomsae.Level.t
+                     }])))
+  in
+  assert (Poomsae.Level.equal level Eulgoul);
+  (* All blocks that happen on the West and East direction are in
+     largely increasing levels throughout the poomsae, starting from
+     low level going up to the mid level. *)
+  let level =
+    List.fold
+      (Poomsae.movements poomsae)
+      ~init:Poomsae.Level.Ale
+      ~f:(fun level movement ->
+      match movement.direction with
+      | North | South -> level
+      | West | East ->
+        Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
+          match technique with
+          | Hand_attack _ | Kick _ | Linked _ -> level
+          | Block (Han_Sonnal_Maki _ | Bakkat_Maki _ | Sonnal_Maki _) ->
+            raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
+          | Block (Maki { hand = Left | Right; level = next_level }) ->
+            (match Poomsae.Level.compare level next_level |> Ordering.of_int with
+             | Less | Equal -> next_level
+             | Greater ->
+               raise_s
+                 [%sexp
+                   "Unexpected level"
+                   , (movement : Poomsae.Movement.t)
+                   , { previous_level = (level : Poomsae.Level.t)
+                     ; next_level : Poomsae.Level.t
+                     }])))
+  in
+  assert (Poomsae.Level.equal level Montong);
+  ()
+;;
+
 let%expect_test "directions" =
   List.map (Poomsae.movements poomsae) ~f:(fun t -> t.direction)
   |> Poomsae.Direction.group_by_axis

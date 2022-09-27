@@ -110,7 +110,7 @@ let%expect_test "kicks levels" =
     Poomsae.Technique.iter movement.technique ~f:(function
       | Block _ | Hand_attack _ | Linked _ -> ()
       | Kick (Yop_Tchagui { foot = Left | Right; level = _ }) ->
-        raise_s [%sexp "Unexpected level", (movement : Poomsae.Movement.t)]
+        raise_s [%sexp "Unexpected movement", (movement : Poomsae.Movement.t)]
       | Kick (Ap_Tchagui { foot = Left | Right; level }) ->
         if not (Poomsae.Level.equal level Eulgoul)
         then raise_s [%sexp "Unexpected level", (movement : Poomsae.Movement.t)]));
