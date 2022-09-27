@@ -37,6 +37,9 @@ type t =
   }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
+(** Return the index represented by the trigram, between 1 and 8. *)
+val index : t -> int
+
 val top_down_line_kinds : t -> Line_kind.t list
 
 (** Build a human representation of the trigram for printing in unit

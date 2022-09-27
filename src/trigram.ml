@@ -19,6 +19,15 @@ type t =
   }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
+let index t =
+  let bit_value (line_kind : Line_kind.t) : int =
+    match line_kind with
+    | Plain -> 0
+    | Two_parts -> 1
+  in
+  1 + bit_value t.top_line + (2 * bit_value t.middle_line) + (4 * bit_value t.bottom_line)
+;;
+
 let top_down_line_kinds { top_line; middle_line; bottom_line } =
   [ top_line; middle_line; bottom_line ]
 ;;

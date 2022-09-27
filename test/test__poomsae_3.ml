@@ -1,10 +1,13 @@
 open! Core
 
 let poomsae = Poomsae.poomsae_3
+let index = 1 + List.length (Poomsae.preceding_poomsaes poomsae)
 
 let%expect_test "name" =
   print_string (Poomsae.name poomsae);
-  [%expect {| TAE GEUG SAM JANG |}]
+  [%expect {| TAE GEUG SAM JANG |}];
+  print_s [%sexp { index : int }];
+  [%expect {| ((index 3)) |}]
 ;;
 
 (* Some facts about this poomsae. *)
@@ -71,6 +74,7 @@ let%expect_test "mirror movements" =
 let%expect_test "trigram" =
   let trigram = Poomsae.Trigram.compute (Poomsae.movements poomsae) in
   Or_error.iter trigram ~f:(fun t ->
+    assert (index = Poomsae.Trigram.index (fst t));
     t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
   [%expect {|
     ------
