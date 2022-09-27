@@ -104,7 +104,7 @@ let poomsae_1 =
     ; { direction = North
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Left; level = Ale })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ]
@@ -128,7 +128,7 @@ let poomsae_1 =
     ; { direction = North
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Right; level = Ale })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ]
@@ -140,7 +140,7 @@ let poomsae_1 =
     ; { direction = West
       ; position = Ap_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ]
@@ -152,7 +152,7 @@ let poomsae_1 =
     ; { direction = East
       ; position = Ap_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ]
@@ -202,7 +202,7 @@ let poomsae_2 =
     ; { direction = West
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Right; level = Eulgoul })
             ]
@@ -214,7 +214,7 @@ let poomsae_2 =
     ; { direction = East
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Left; level = Eulgoul })
             ]
@@ -242,7 +242,7 @@ let poomsae_2 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ]
@@ -250,7 +250,7 @@ let poomsae_2 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ]
@@ -258,7 +258,7 @@ let poomsae_2 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ]
@@ -276,7 +276,7 @@ let poomsae_3 =
     ; { direction = West
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
@@ -289,7 +289,7 @@ let poomsae_3 =
     ; { direction = East
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
@@ -334,7 +334,7 @@ let poomsae_3 =
     ; { direction = East
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
@@ -347,7 +347,7 @@ let poomsae_3 =
     ; { direction = West
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
@@ -356,7 +356,7 @@ let poomsae_3 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Left; level = Ale })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ]
@@ -364,7 +364,7 @@ let poomsae_3 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Right; level = Ale })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ]
@@ -372,7 +372,7 @@ let poomsae_3 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Block (Maki { hand = Left; level = Ale })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
@@ -381,7 +381,7 @@ let poomsae_3 =
     ; { direction = South
       ; position = Ap_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Block (Maki { hand = Right; level = Ale })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
@@ -416,7 +416,7 @@ let poomsae_4 =
     ; { direction = North
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ]
@@ -424,7 +424,7 @@ let poomsae_4 =
     ; { direction = North
       ; position = Dwitt_Koubi { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Yop_Tchagui { foot = Left; level = Eulgoul })
             ; Kick (Yop_Tchagui { foot = Right; level = Eulgoul })
             ; Block (Sonnal_Maki { hand = Right; level = Montong })
@@ -437,7 +437,7 @@ let poomsae_4 =
     ; { direction = East
       ; position = Dwitt_Koubi { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Block (Maki { hand = Right; level = Montong })
             ]
@@ -449,7 +449,7 @@ let poomsae_4 =
     ; { direction = West
       ; position = Dwitt_Koubi { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
             ; Block (Maki { hand = Left; level = Montong })
             ]
@@ -461,7 +461,7 @@ let poomsae_4 =
     ; { direction = South
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
             ; Hand_attack (Deung_Joumok_Ap_Tchigui { hand = Right; level = Eulgoul })
             ]
@@ -469,7 +469,7 @@ let poomsae_4 =
     ; { direction = East
       ; position = Ap_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Left; level = Montong })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ]
@@ -477,7 +477,7 @@ let poomsae_4 =
     ; { direction = West (* Going through South *)
       ; position = Ap_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Right; level = Montong })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ]
@@ -485,7 +485,7 @@ let poomsae_4 =
     ; { direction = South
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Left; level = Montong })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
@@ -494,7 +494,7 @@ let poomsae_4 =
     ; { direction = South
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique =
-          Linked
+          Chained
             [ Block (Maki { hand = Right; level = Montong })
             ; Hand_attack (Jileugui { hand = Left; level = Montong })
             ; Hand_attack (Jileugui { hand = Right; level = Montong })

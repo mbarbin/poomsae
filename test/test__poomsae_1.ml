@@ -94,7 +94,7 @@ let%expect_test "hand attacks levels" =
   (* All hand attacks are Jileugui at mid level. *)
   List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
     Poomsae.Technique.iter movement.technique ~f:(function
-      | Block _ | Kick _ | Linked _ -> ()
+      | Block _ | Kick _ | Chained _ -> ()
       | Hand_attack
           ( Han_Sonnal_Mok_Tchigui { hand = Left | Right }
           | Jebipoum_Mok_Tchigui { hand = Left | Right }
@@ -112,7 +112,7 @@ let%expect_test "kicks levels" =
   (* All kick attacks are Ap_Tchagui at high level. *)
   List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
     Poomsae.Technique.iter movement.technique ~f:(function
-      | Block _ | Hand_attack _ | Linked _ -> ()
+      | Block _ | Hand_attack _ | Chained _ -> ()
       | Kick (Yop_Tchagui { foot = Left | Right; level = _ }) ->
         raise_s [%sexp "Unexpected movement", (movement : Poomsae.Movement.t)]
       | Kick (Ap_Tchagui { foot = Left | Right; level }) ->
@@ -135,7 +135,7 @@ let%expect_test "blocks level" =
       | West | East ->
         Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
           match technique with
-          | Hand_attack _ | Kick _ | Linked _ -> level
+          | Hand_attack _ | Kick _ | Chained _ -> level
           | Block (Han_Sonnal_Maki _ | Bakkat_Maki _ | Sonnal_Maki _) ->
             raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
           | Block (Maki { hand = Left | Right; level = next_level }) ->
@@ -164,7 +164,7 @@ let%expect_test "blocks level" =
          raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)]
        | Ap_Koubi_Seugui { front_foot } ->
          Poomsae.Technique.iter movement.technique ~f:(function
-           | Hand_attack _ | Kick _ | Linked _ -> ()
+           | Hand_attack _ | Kick _ | Chained _ -> ()
            | Block (Han_Sonnal_Maki _ | Bakkat_Maki _ | Sonnal_Maki _) ->
              raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
            | Block (Maki { hand; level }) ->

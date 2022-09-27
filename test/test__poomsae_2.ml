@@ -90,7 +90,7 @@ let%expect_test "blocks level" =
       | North ->
         Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
           match technique with
-          | Hand_attack _ | Kick _ | Linked _ -> level
+          | Hand_attack _ | Kick _ | Chained _ -> level
           | Block (Han_Sonnal_Maki _ | Bakkat_Maki _ | Sonnal_Maki _) ->
             raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
           | Block (Maki { hand = Left | Right; level = next_level }) ->
@@ -119,7 +119,7 @@ let%expect_test "blocks level" =
       | West | East ->
         Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
           match technique with
-          | Hand_attack _ | Kick _ | Linked _ -> level
+          | Hand_attack _ | Kick _ | Chained _ -> level
           | Block (Han_Sonnal_Maki _ | Bakkat_Maki _ | Sonnal_Maki _) ->
             raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
           | Block (Maki { hand = Left | Right; level = next_level }) ->

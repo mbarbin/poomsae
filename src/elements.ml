@@ -24,7 +24,7 @@ let add_movement t { Movement.direction = _; position; technique } =
     | Hand_attack hand_attack ->
       { t with hand_attacks = Set.add t.hand_attacks (Hand_attack.kind hand_attack) }
     | Kick kick -> { t with kicks = Set.add t.kicks (Kick.kind kick) }
-    | Linked _ -> assert false)
+    | Chained _ -> assert false)
 ;;
 
 let union t1 t2 =

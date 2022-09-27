@@ -34,7 +34,7 @@ let%expect_test "names" =
     │      2 │ TAE GEUG YI JANG    │          18 │
     │      3 │ TAE GEUG SAM JANG   │          20 │
     │      4 │ TAE GEUG SA JANG    │          17 │
-    │      5 │ TAE GEUG OH JANG    │           0 │
+    │      5 │ TAE GEUG OH JANG    │           4 │
     │      6 │ TAE GEUG YOUK JANG  │           0 │
     │      7 │ TAE GEUG TCHIL JANG │           0 │
     │      8 │ TAE GEUG PAL JANG   │           0 │
@@ -68,8 +68,16 @@ let%expect_test "displacement_returns_to_origin" =
     (Error
      ("Poomsae displacement does not return to origin" BOGUS
       ((displacement
-        ((north ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 0)))
-         (west ((ap_seugui 1) (ap_koubi_seugui 0) (dwitt_koubi 0)))
-         (east ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)))
-         (south ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)))))))) |}]
+        ((north
+          ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 0)
+           (wen_or_oren_seugui 0)))
+         (west
+          ((ap_seugui 1) (ap_koubi_seugui 0) (dwitt_koubi 0)
+           (wen_or_oren_seugui 0)))
+         (east
+          ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
+           (wen_or_oren_seugui 0)))
+         (south
+          ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
+           (wen_or_oren_seugui 0)))))))) |}]
 ;;
