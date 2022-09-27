@@ -6,3 +6,6 @@ type t =
   | Left
   | Right
 [@@deriving equal, compare, enumerate, hash, sexp_of]
+
+(** Return the opposite of the side supplied. *)
+val mirror : t -> t

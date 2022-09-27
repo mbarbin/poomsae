@@ -41,6 +41,47 @@ let iter_consecutive_movements t ~f =
   |> (ignore : Movement.t option -> unit)
 ;;
 
+module Maybe_mirror = struct
+  type t =
+    | New_movement of { index : int }
+    | Equal of { equal_index : int }
+    | Mirror of { mirror_of_index : int }
+  [@@deriving equal, compare, hash]
+
+  let char i = Char.of_int_exn (i + Char.to_int 'a')
+
+  let sexp_of_t = function
+    | New_movement { index } | Equal { equal_index = index } ->
+      Sexp.Atom (sprintf "%c" (char index))
+    | Mirror { mirror_of_index = index } -> Sexp.Atom (sprintf "%c'" (char index))
+  ;;
+end
+
+let find_mirror_movements t =
+  let rec aux acc indices = function
+    | [] -> List.rev acc
+    | (movement : Movement.t) :: tl ->
+      let maybe_mirror, indices =
+        match
+          List.find_mapi indices ~f:(fun index m ->
+            if Movement.equal movement { m with direction = movement.direction }
+            then Some (Maybe_mirror.Equal { equal_index = index })
+            else if Movement.equal
+                      (Movement.mirror movement)
+                      { m with direction = movement.direction }
+            then Some (Maybe_mirror.Mirror { mirror_of_index = index })
+            else None)
+        with
+        | Some maybe_mirror -> maybe_mirror, indices
+        | None ->
+          ( Maybe_mirror.New_movement { index = List.length indices }
+          , indices @ [ movement ] )
+      in
+      aux ((movement, maybe_mirror) :: acc) indices tl
+  in
+  aux [] [] t.movements
+;;
+
 let poomsae_1 =
   create
     ~name:"TAE GEUG IL JANG"

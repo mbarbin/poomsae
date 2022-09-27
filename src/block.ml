@@ -39,3 +39,10 @@ let kind : t -> Kind.t = function
   | Sonnal_Maki _ -> Sonnal_Maki
   | Han_Sonnal_Maki _ -> Han_Sonnal_Maki
 ;;
+
+let mirror = function
+  | Maki { hand; level } -> Maki { hand = Side.mirror hand; level }
+  | Bakkat_Maki { hand; level } -> Bakkat_Maki { hand = Side.mirror hand; level }
+  | Sonnal_Maki { hand; level } -> Sonnal_Maki { hand = Side.mirror hand; level }
+  | Han_Sonnal_Maki { hand; level } -> Han_Sonnal_Maki { hand = Side.mirror hand; level }
+;;

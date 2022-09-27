@@ -50,6 +50,16 @@ val preceding_poomsaes : t -> t list
    accumultation of elements of the preceding poomsaes. *)
 val new_elements : t -> Elements.t
 
+module Maybe_mirror : sig
+  type t =
+    | New_movement of { index : int }
+    | Equal of { equal_index : int }
+    | Mirror of { mirror_of_index : int }
+  [@@deriving equal, compare, hash, sexp_of]
+end
+
+val find_mirror_movements : t -> (Movement.t * Maybe_mirror.t) list
+
 (** Command *)
 
 val hello_world : Sexp.t

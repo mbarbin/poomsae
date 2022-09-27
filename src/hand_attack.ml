@@ -36,3 +36,12 @@ let kind : t -> Kind.t = function
   | Pyon_Sonn_Seo_Jileugui _ -> Pyon_Sonn_Seo_Jileugui
   | Deung_Joumok_Ap_Tchigui _ -> Deung_Joumok_Ap_Tchigui
 ;;
+
+let mirror = function
+  | Jileugui { hand; level } -> Jileugui { hand = Side.mirror hand; level }
+  | Han_Sonnal_Mok_Tchigui { hand } -> Han_Sonnal_Mok_Tchigui { hand = Side.mirror hand }
+  | Jebipoum_Mok_Tchigui { hand } -> Jebipoum_Mok_Tchigui { hand = Side.mirror hand }
+  | Pyon_Sonn_Seo_Jileugui { hand } -> Pyon_Sonn_Seo_Jileugui { hand = Side.mirror hand }
+  | Deung_Joumok_Ap_Tchigui { hand; level } ->
+    Deung_Joumok_Ap_Tchigui { hand = Side.mirror hand; level }
+;;

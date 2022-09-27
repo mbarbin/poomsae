@@ -12,3 +12,6 @@ val iter : t -> f:(t -> unit) -> unit
 
 (** Fold on all [t]s, decomposing [Linked _] ts. *)
 val fold : t -> init:'a -> f:('a -> t -> 'a) -> 'a
+
+(** Reverse the hand and the foot on the techniques. *)
+val mirror : t -> t

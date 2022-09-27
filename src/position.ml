@@ -24,3 +24,9 @@ let kind : t -> Kind.t = function
   | Ap_Koubi_Seugui _ -> Ap_Koubi_Seugui
   | Dwitt_Koubi _ -> Dwitt_Koubi
 ;;
+
+let mirror = function
+  | Ap_Seugui { front_foot = f } -> Ap_Seugui { front_foot = Side.mirror f }
+  | Ap_Koubi_Seugui { front_foot = f } -> Ap_Koubi_Seugui { front_foot = Side.mirror f }
+  | Dwitt_Koubi { front_foot = f } -> Dwitt_Koubi { front_foot = Side.mirror f }
+;;

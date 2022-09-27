@@ -21,3 +21,10 @@ let rec fold t ~init ~f =
   | (Block _ | Hand_attack _ | Kick _) as t -> f init t
   | Linked ts -> List.fold ts ~init ~f:(fun acc t -> fold t ~init:acc ~f)
 ;;
+
+let rec mirror = function
+  | Block x -> Block (Block.mirror x)
+  | Hand_attack x -> Hand_attack (Hand_attack.mirror x)
+  | Kick x -> Kick (Kick.mirror x)
+  | Linked ts -> Linked (List.map ts ~f:mirror)
+;;

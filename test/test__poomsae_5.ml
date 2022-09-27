@@ -34,6 +34,20 @@ let%expect_test "directions" =
   [%expect {| |}]
 ;;
 
+let%expect_test "mirror movements" =
+  let movements = Poomsae.find_mirror_movements poomsae in
+  let lines =
+    List.group movements ~break:(fun (m1, _) (m2, _) ->
+      not Poomsae.Direction.(Axis.equal (axis m1.direction) (axis m2.direction)))
+  in
+  List.iter lines ~f:(fun movements ->
+    let movements =
+      List.map movements ~f:(fun (m, maybe_mirror) -> m.direction, maybe_mirror)
+    in
+    print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
+  [%expect {||}]
+;;
+
 let%expect_test "trigram" =
   let trigram = Poomsae.Trigram.compute (Poomsae.movements poomsae) in
   Or_error.iter trigram ~f:(fun t ->
