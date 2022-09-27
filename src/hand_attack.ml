@@ -8,6 +8,7 @@ module Kind = struct
       | Jebipoum_Mok_Tchigui
       | Pyon_Sonn_Seo_Jileugui
       | Deung_Joumok_Ap_Tchigui
+      | Me_Jumok_Nelyeu_Tchigui
     [@@deriving equal, compare, enumerate, hash, sexp_of]
   end
 
@@ -27,6 +28,7 @@ type t =
       { hand : Side.t
       ; level : Level.t
       }
+  | Me_Jumok_Nelyeu_Tchigui of { hand : Side.t }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 let kind : t -> Kind.t = function
@@ -35,6 +37,7 @@ let kind : t -> Kind.t = function
   | Jebipoum_Mok_Tchigui _ -> Jebipoum_Mok_Tchigui
   | Pyon_Sonn_Seo_Jileugui _ -> Pyon_Sonn_Seo_Jileugui
   | Deung_Joumok_Ap_Tchigui _ -> Deung_Joumok_Ap_Tchigui
+  | Me_Jumok_Nelyeu_Tchigui _ -> Me_Jumok_Nelyeu_Tchigui
 ;;
 
 let mirror = function
@@ -44,4 +47,6 @@ let mirror = function
   | Pyon_Sonn_Seo_Jileugui { hand } -> Pyon_Sonn_Seo_Jileugui { hand = Side.mirror hand }
   | Deung_Joumok_Ap_Tchigui { hand; level } ->
     Deung_Joumok_Ap_Tchigui { hand = Side.mirror hand; level }
+  | Me_Jumok_Nelyeu_Tchigui { hand } ->
+    Me_Jumok_Nelyeu_Tchigui { hand = Side.mirror hand }
 ;;

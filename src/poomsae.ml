@@ -503,7 +503,28 @@ let poomsae_4 =
     ]
 ;;
 
-let poomsae_5 = create ~name:"TAE GEUG OH JANG" []
+let poomsae_5 =
+  create
+    ~name:"TAE GEUG OH JANG"
+    [ { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ; { direction = West
+      ; position = Wen_Seugui
+      ; technique = Hand_attack (Me_Jumok_Nelyeu_Tchigui { hand = Left })
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Right; level = Ale })
+      }
+    ; { direction = East
+      ; position = Oren_Seugui
+      ; technique = Hand_attack (Me_Jumok_Nelyeu_Tchigui { hand = Right })
+      }
+    ]
+;;
+
 let poomsae_6 = create ~name:"TAE GEUG YOUK JANG" []
 let poomsae_7 = create ~name:"TAE GEUG TCHIL JANG" []
 let poomsae_8 = create ~name:"TAE GEUG PAL JANG" []

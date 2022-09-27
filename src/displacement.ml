@@ -8,15 +8,19 @@ module Linear_displacement = struct
     { ap_seugui : int
     ; ap_koubi_seugui : int
     ; dwitt_koubi : int
+    ; wen_or_oren_seugui : int
     }
   [@@deriving equal, sexp_of]
 
-  let zero = { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 0 }
+  let zero =
+    { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 0; wen_or_oren_seugui = 0 }
+  ;;
 
   let add t1 t2 =
     { ap_seugui = t1.ap_seugui + t2.ap_seugui
     ; ap_koubi_seugui = t1.ap_koubi_seugui + t2.ap_koubi_seugui
     ; dwitt_koubi = t1.dwitt_koubi + t2.dwitt_koubi
+    ; wen_or_oren_seugui = t1.wen_or_oren_seugui + t2.wen_or_oren_seugui
     }
   ;;
 
@@ -24,16 +28,19 @@ module Linear_displacement = struct
     { ap_seugui = t1.ap_seugui - t2.ap_seugui
     ; ap_koubi_seugui = t1.ap_koubi_seugui - t2.ap_koubi_seugui
     ; dwitt_koubi = t1.dwitt_koubi - t2.dwitt_koubi
+    ; wen_or_oren_seugui = t1.wen_or_oren_seugui - t2.wen_or_oren_seugui
     }
   ;;
 
   let of_position : Position.t -> t = function
     | Ap_Seugui { front_foot = Left | Right } ->
-      { ap_seugui = 1; ap_koubi_seugui = 0; dwitt_koubi = 0 }
+      { ap_seugui = 1; ap_koubi_seugui = 0; dwitt_koubi = 0; wen_or_oren_seugui = 0 }
     | Ap_Koubi_Seugui { front_foot = Left | Right } ->
-      { ap_seugui = 0; ap_koubi_seugui = 1; dwitt_koubi = 0 }
+      { ap_seugui = 0; ap_koubi_seugui = 1; dwitt_koubi = 0; wen_or_oren_seugui = 0 }
     | Dwitt_Koubi { front_foot = Left | Right } ->
-      { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 1 }
+      { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 1; wen_or_oren_seugui = 0 }
+    | Wen_Seugui | Oren_Seugui ->
+      { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 0; wen_or_oren_seugui = 1 }
   ;;
 
   let add_position t (position : Position.t) = add t (of_position position)

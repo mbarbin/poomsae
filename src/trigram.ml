@@ -39,6 +39,7 @@ let compute_position_valuation (position : Position.Kind.t) =
   | Ap_Seugui -> 1
   | Dwitt_Koubi -> 1
   | Ap_Koubi_Seugui -> 3
+  | Wen_Seugui | Oren_Seugui -> 1
 ;;
 
 let compute movements =
@@ -78,18 +79,8 @@ let compute movements =
                  then return last_movement.position
                  else None
              in
-             let new_foot =
-               match movement.position with
-               | Ap_Seugui { front_foot }
-               | Ap_Koubi_Seugui { front_foot }
-               | Dwitt_Koubi { front_foot } -> front_foot
-             in
-             let last_foot =
-               match (last_position : Position.t) with
-               | Ap_Seugui { front_foot }
-               | Ap_Koubi_Seugui { front_foot }
-               | Dwitt_Koubi { front_foot } -> front_foot
-             in
+             let new_foot = Position.front_foot movement.position in
+             let last_foot = Position.front_foot last_position in
              if Side.equal new_foot last_foot
              then return (compute_position_valuation (Position.kind last_position))
              else None

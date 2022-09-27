@@ -5,6 +5,8 @@ module Kind : sig
     | Ap_Seugui
     | Ap_Koubi_Seugui
     | Dwitt_Koubi
+    | Wen_Seugui
+    | Oren_Seugui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -14,8 +16,11 @@ type t =
   | Ap_Seugui of { front_foot : Side.t }
   | Ap_Koubi_Seugui of { front_foot : Side.t }
   | Dwitt_Koubi of { front_foot : Side.t }
+  | Wen_Seugui
+  | Oren_Seugui
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
+val front_foot : t -> Side.t
 val kind : t -> Kind.t
 
 (** Changes the foot *)
