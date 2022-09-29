@@ -16,22 +16,43 @@ let%expect_test "elements" =
   print_s [%sexp (Poomsae.elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions (Ap_Koubi_Seugui Wen_Seugui Oren_Seugui)) (blocks (Maki))
-     (hand_attacks (Me_Jumok_Nelyeu_Tchigui))) |}]
+    ((positions (Ap_Koubi_Seugui Dwitt_Koubi Wen_Seugui Oren_Seugui Dwitt_Koa))
+     (blocks (Maki Han_Sonnal_Maki))
+     (hand_attacks
+      (Deung_Joumok_Ap_Tchigui Me_Jumok_Nelyeu_Tchigui Palkoup_Dolyeu_Tchigui
+       Palkoup_Pyo_Jeuk_Tchigui))
+     (kicks (Ap_Tchagui Yop_Tchagui))) |}]
 ;;
 
 let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions (Wen_Seugui Oren_Seugui))
-     (hand_attacks (Me_Jumok_Nelyeu_Tchigui))) |}]
+    ((positions (Wen_Seugui Oren_Seugui Dwitt_Koa))
+     (hand_attacks
+      (Me_Jumok_Nelyeu_Tchigui Palkoup_Dolyeu_Tchigui Palkoup_Pyo_Jeuk_Tchigui))) |}]
 ;;
 
 let%expect_test "displacement" =
   (* One returns at the point of origin at the end of the poomsae. *)
   print_s [%sexp (Poomsae.displacement_returns_to_origin poomsae : unit Or_error.t)];
-  [%expect {| (Ok ()) |}]
+  [%expect
+    {|
+    (Error
+     ("Poomsae displacement does not return to origin" "TAE GEUG OH JANG"
+      ((displacement
+        ((north
+          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 0)
+           (wen_or_oren_seugui 0) (dwitt_koa 0)))
+         (west
+          ((ap_seugui 0) (ap_koubi_seugui 3) (dwitt_koubi 1)
+           (wen_or_oren_seugui 1) (dwitt_koa 0)))
+         (east
+          ((ap_seugui 0) (ap_koubi_seugui 5) (dwitt_koubi 1)
+           (wen_or_oren_seugui 1) (dwitt_koa 0)))
+         (south
+          ((ap_seugui 0) (ap_koubi_seugui 3) (dwitt_koubi 0)
+           (wen_or_oren_seugui 0) (dwitt_koa 1)))))))) |}]
 ;;
 
 let%expect_test "directions" =
@@ -39,7 +60,14 @@ let%expect_test "directions" =
   |> Poomsae.Direction.group_by_axis
   |> List.iter ~f:(fun directions ->
        print_s [%sexp (directions : Poomsae.Direction.t list)]);
-  [%expect {| (West West East East) |}]
+  [%expect
+    {|
+    (West West East East)
+    (North North North North)
+    (East East West West)
+    (South South)
+    (East East West East)
+    (South South) |}]
 ;;
 
 let%expect_test "mirror movements" =
@@ -53,7 +81,14 @@ let%expect_test "mirror movements" =
       List.map movements ~f:(fun (m, maybe_mirror) -> m.direction, maybe_mirror)
     in
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
-  [%expect {| ((West a) (West b) (East a') (East b')) |}]
+  [%expect
+    {|
+    ((West a) (West b) (East a') (East b'))
+    ((North c) (North d) (North d') (North e))
+    ((East f) (East g) (West f') (West g'))
+    ((South h) (South i))
+    ((East j) (East k) (West j') (East k'))
+    ((South h) (South l)) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -67,5 +102,7 @@ let%expect_test "trigram" =
     {|
     (Error
      ("Unexpected displacements"
-      ((lateral_displacements ((0 ((west 3) (east 2)))))))) |}]
+      ((lateral_displacements
+        ((12 ((west 0) (east 4))) (6 ((west 0) (east 6)))
+         (0 ((west 3) (east 2)))))))) |}]
 ;;

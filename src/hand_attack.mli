@@ -8,6 +8,8 @@ module Kind : sig
     | Pyon_Sonn_Seo_Jileugui
     | Deung_Joumok_Ap_Tchigui
     | Me_Jumok_Nelyeu_Tchigui
+    | Palkoup_Dolyeu_Tchigui
+    | Palkoup_Pyo_Jeuk_Tchigui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -26,6 +28,8 @@ type t =
       ; level : Level.t
       }
   | Me_Jumok_Nelyeu_Tchigui of { hand : Side.t }
+  | Palkoup_Dolyeu_Tchigui of { elbow : Side.t }
+  | Palkoup_Pyo_Jeuk_Tchigui of { elbow : Side.t }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 val kind : t -> Kind.t

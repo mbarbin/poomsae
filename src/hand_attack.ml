@@ -9,6 +9,8 @@ module Kind = struct
       | Pyon_Sonn_Seo_Jileugui
       | Deung_Joumok_Ap_Tchigui
       | Me_Jumok_Nelyeu_Tchigui
+      | Palkoup_Dolyeu_Tchigui
+      | Palkoup_Pyo_Jeuk_Tchigui
     [@@deriving equal, compare, enumerate, hash, sexp_of]
   end
 
@@ -29,6 +31,8 @@ type t =
       ; level : Level.t
       }
   | Me_Jumok_Nelyeu_Tchigui of { hand : Side.t }
+  | Palkoup_Dolyeu_Tchigui of { elbow : Side.t }
+  | Palkoup_Pyo_Jeuk_Tchigui of { elbow : Side.t }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 let kind : t -> Kind.t = function
@@ -38,6 +42,8 @@ let kind : t -> Kind.t = function
   | Pyon_Sonn_Seo_Jileugui _ -> Pyon_Sonn_Seo_Jileugui
   | Deung_Joumok_Ap_Tchigui _ -> Deung_Joumok_Ap_Tchigui
   | Me_Jumok_Nelyeu_Tchigui _ -> Me_Jumok_Nelyeu_Tchigui
+  | Palkoup_Dolyeu_Tchigui _ -> Palkoup_Dolyeu_Tchigui
+  | Palkoup_Pyo_Jeuk_Tchigui _ -> Palkoup_Pyo_Jeuk_Tchigui
 ;;
 
 let mirror = function
@@ -49,4 +55,8 @@ let mirror = function
     Deung_Joumok_Ap_Tchigui { hand = Side.mirror hand; level }
   | Me_Jumok_Nelyeu_Tchigui { hand } ->
     Me_Jumok_Nelyeu_Tchigui { hand = Side.mirror hand }
+  | Palkoup_Dolyeu_Tchigui { elbow } ->
+    Palkoup_Dolyeu_Tchigui { elbow = Side.mirror elbow }
+  | Palkoup_Pyo_Jeuk_Tchigui { elbow } ->
+    Palkoup_Pyo_Jeuk_Tchigui { elbow = Side.mirror elbow }
 ;;

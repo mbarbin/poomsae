@@ -7,6 +7,7 @@ module Kind : sig
     | Dwitt_Koubi
     | Wen_Seugui
     | Oren_Seugui
+    | Dwitt_Koa
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -18,6 +19,7 @@ type t =
   | Dwitt_Koubi of { front_foot : Side.t }
   | Wen_Seugui
   | Oren_Seugui
+  | Dwitt_Koa of { front_foot : Side.t }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 val front_foot : t -> Side.t

@@ -9,11 +9,17 @@ module Linear_displacement = struct
     ; ap_koubi_seugui : int
     ; dwitt_koubi : int
     ; wen_or_oren_seugui : int
+    ; dwitt_koa : int
     }
   [@@deriving equal, sexp_of]
 
   let zero =
-    { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 0; wen_or_oren_seugui = 0 }
+    { ap_seugui = 0
+    ; ap_koubi_seugui = 0
+    ; dwitt_koubi = 0
+    ; wen_or_oren_seugui = 0
+    ; dwitt_koa = 0
+    }
   ;;
 
   let add t1 t2 =
@@ -21,6 +27,7 @@ module Linear_displacement = struct
     ; ap_koubi_seugui = t1.ap_koubi_seugui + t2.ap_koubi_seugui
     ; dwitt_koubi = t1.dwitt_koubi + t2.dwitt_koubi
     ; wen_or_oren_seugui = t1.wen_or_oren_seugui + t2.wen_or_oren_seugui
+    ; dwitt_koa = t1.dwitt_koa + t2.dwitt_koa
     }
   ;;
 
@@ -29,18 +36,16 @@ module Linear_displacement = struct
     ; ap_koubi_seugui = t1.ap_koubi_seugui - t2.ap_koubi_seugui
     ; dwitt_koubi = t1.dwitt_koubi - t2.dwitt_koubi
     ; wen_or_oren_seugui = t1.wen_or_oren_seugui - t2.wen_or_oren_seugui
+    ; dwitt_koa = t1.dwitt_koa - t2.dwitt_koa
     }
   ;;
 
   let of_position : Position.t -> t = function
-    | Ap_Seugui { front_foot = Left | Right } ->
-      { ap_seugui = 1; ap_koubi_seugui = 0; dwitt_koubi = 0; wen_or_oren_seugui = 0 }
-    | Ap_Koubi_Seugui { front_foot = Left | Right } ->
-      { ap_seugui = 0; ap_koubi_seugui = 1; dwitt_koubi = 0; wen_or_oren_seugui = 0 }
-    | Dwitt_Koubi { front_foot = Left | Right } ->
-      { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 1; wen_or_oren_seugui = 0 }
-    | Wen_Seugui | Oren_Seugui ->
-      { ap_seugui = 0; ap_koubi_seugui = 0; dwitt_koubi = 0; wen_or_oren_seugui = 1 }
+    | Ap_Seugui { front_foot = Left | Right } -> { zero with ap_seugui = 1 }
+    | Ap_Koubi_Seugui { front_foot = Left | Right } -> { zero with ap_koubi_seugui = 1 }
+    | Dwitt_Koubi { front_foot = Left | Right } -> { zero with dwitt_koubi = 1 }
+    | Wen_Seugui | Oren_Seugui -> { zero with wen_or_oren_seugui = 1 }
+    | Dwitt_Koa { front_foot = Left | Right } -> { zero with dwitt_koa = 1 }
   ;;
 
   let add_position t (position : Position.t) = add t (of_position position)

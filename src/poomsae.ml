@@ -522,6 +522,110 @@ let poomsae_5 =
       ; position = Oren_Seugui
       ; technique = Hand_attack (Me_Jumok_Nelyeu_Tchigui { hand = Right })
       }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Block (Maki { hand = Left; level = Montong })
+            ; Block (Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Deung_Joumok_Ap_Tchigui { hand = Right; level = Eulgoul })
+            ; Block (Maki { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Hand_attack (Deung_Joumok_Ap_Tchigui { hand = Left; level = Eulgoul })
+            ; Block (Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Hand_attack (Deung_Joumok_Ap_Tchigui { hand = Right; level = Eulgoul })
+      }
+    ; { direction = East (* Rotating going through South *)
+      ; position = Dwitt_Koubi { front_foot = Left }
+      ; technique = Block (Han_Sonnal_Maki { hand = Left; level = Montong })
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Hand_attack (Palkoup_Dolyeu_Tchigui { elbow = Right })
+      }
+    ; { direction = West (* Rotating going through South *)
+      ; position = Dwitt_Koubi { front_foot = Right }
+      ; technique = Block (Han_Sonnal_Maki { hand = Right; level = Montong })
+      }
+    ; { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Hand_attack (Palkoup_Dolyeu_Tchigui { elbow = Left })
+      }
+    ; { direction = South
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Block (Maki { hand = Left; level = Ale })
+            ; Block (Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = South
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Block (Maki { hand = Right; level = Ale })
+            ; Block (Maki { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Right; level = Eulgoul })
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Yop_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Palkoup_Pyo_Jeuk_Tchigui { elbow = Left })
+            ]
+      }
+    ; { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Left; level = Eulgoul })
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Kick (Yop_Tchagui { foot = Left; level = Eulgoul })
+            ; Hand_attack (Palkoup_Pyo_Jeuk_Tchigui { elbow = Right })
+            ]
+      }
+    ; { direction = South
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Block (Maki { hand = Left; level = Ale })
+            ; Block (Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = South
+      ; position = Dwitt_Koa { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Deung_Joumok_Ap_Tchigui { hand = Right; level = Eulgoul })
+            ]
+      }
     ]
 ;;
 

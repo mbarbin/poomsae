@@ -40,6 +40,7 @@ let compute_position_valuation (position : Position.Kind.t) =
   | Dwitt_Koubi -> 1
   | Ap_Koubi_Seugui -> 3
   | Wen_Seugui | Oren_Seugui -> 1
+  | Dwitt_Koa -> 1
 ;;
 
 let compute movements =

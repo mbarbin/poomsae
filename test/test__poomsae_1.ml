@@ -59,10 +59,10 @@ let%expect_test "positions" =
   Poomsae.iter_consecutive_movements poomsae ~f:(fun m1 m2 ->
     match
       match m2.position with
-      | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui -> Error ()
+      | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui | Dwitt_Koa _ -> Error ()
       | Ap_Seugui { front_foot } ->
         (match m1.position with
-         | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui -> Error ()
+         | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui | Dwitt_Koa _ -> Error ()
          | Ap_Koubi_Seugui { front_foot = previous_foot } ->
            if Poomsae.Side.equal previous_foot front_foot then Error () else Ok ()
          | Ap_Seugui { front_foot = previous_foot } ->
@@ -74,7 +74,7 @@ let%expect_test "positions" =
             | true, true | false, false -> Error ()))
       | Ap_Koubi_Seugui { front_foot } ->
         (match m1.position with
-         | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui -> Error ()
+         | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui | Dwitt_Koa _ -> Error ()
          | Ap_Seugui { front_foot = previous_foot } ->
            if Poomsae.Side.equal previous_foot front_foot then Ok () else Error ()
          | Ap_Koubi_Seugui { front_foot = previous_foot } ->
@@ -100,7 +100,9 @@ let%expect_test "hand attacks levels" =
           | Jebipoum_Mok_Tchigui { hand = Left | Right }
           | Pyon_Sonn_Seo_Jileugui { hand = Left | Right }
           | Deung_Joumok_Ap_Tchigui { hand = Left | Right; level = _ }
-          | Me_Jumok_Nelyeu_Tchigui { hand = Left | Right } ) ->
+          | Me_Jumok_Nelyeu_Tchigui { hand = Left | Right }
+          | Palkoup_Dolyeu_Tchigui { elbow = Left | Right }
+          | Palkoup_Pyo_Jeuk_Tchigui { elbow = Left | Right } ) ->
         raise_s [%sexp "Unexpected movement", (movement : Poomsae.Movement.t)]
       | Hand_attack (Jileugui { hand = Left | Right; level }) ->
         if not (Poomsae.Level.equal level Montong)
@@ -160,7 +162,7 @@ let%expect_test "blocks level" =
     | West | East -> ()
     | North | South ->
       (match movement.position with
-       | Ap_Seugui _ | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui ->
+       | Ap_Seugui _ | Dwitt_Koubi _ | Wen_Seugui | Oren_Seugui | Dwitt_Koa _ ->
          raise_s [%sexp "Unexpected position", (movement : Poomsae.Movement.t)]
        | Ap_Koubi_Seugui { front_foot } ->
          Poomsae.Technique.iter movement.technique ~f:(function

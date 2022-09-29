@@ -44,16 +44,16 @@ let%expect_test "displacement" =
       ((displacement
         ((north
           ((ap_seugui 0) (ap_koubi_seugui 2) (dwitt_koubi 1)
-           (wen_or_oren_seugui 0)))
+           (wen_or_oren_seugui 0) (dwitt_koa 0)))
          (west
           ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 3)
-           (wen_or_oren_seugui 0)))
+           (wen_or_oren_seugui 0) (dwitt_koa 0)))
          (east
           ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 3)
-           (wen_or_oren_seugui 0)))
+           (wen_or_oren_seugui 0) (dwitt_koa 0)))
          (south
           ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0)))))))) |}]
+           (wen_or_oren_seugui 0) (dwitt_koa 0)))))))) |}]
 ;;
 
 let%expect_test "directions" =
