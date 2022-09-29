@@ -143,7 +143,7 @@ let compute movements =
       in
       (match absolute_displacements with
        | [ _ ] -> return { top_line = Plain; middle_line = Plain; bottom_line = Plain }
-       | [ small; _ ] ->
+       | [ small; _ ] | [ small; _; _ ] ->
          let line (l : Lateral_displacement.t) =
            if max l.west l.east = small then Line_kind.Two_parts else Line_kind.Plain
          in

@@ -96,12 +96,15 @@ let%expect_test "trigram" =
   Or_error.iter trigram ~f:(fun t ->
     assert (index = Poomsae.Trigram.index (fst t));
     t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
-  [%expect {||}];
+  [%expect {|
+    ------
+    ------
+    --  -- |}];
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Error
-     ("Unexpected displacements"
+    (Ok
+     (((top_line Plain) (middle_line Plain) (bottom_line Two_parts))
       ((lateral_displacements
         ((12 ((west 0) (east 4))) (6 ((west 0) (east 6)))
          (0 ((west 3) (east 2)))))))) |}]
