@@ -45,10 +45,10 @@ let%expect_test "displacement" =
           ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 0)
            (wen_or_oren_seugui 0) (dwitt_koa 0)))
          (west
-          ((ap_seugui 0) (ap_koubi_seugui 3) (dwitt_koubi 1)
+          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 1)
            (wen_or_oren_seugui 1) (dwitt_koa 0)))
          (east
-          ((ap_seugui 0) (ap_koubi_seugui 5) (dwitt_koubi 1)
+          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 1)
            (wen_or_oren_seugui 1) (dwitt_koa 0)))
          (south
           ((ap_seugui 0) (ap_koubi_seugui 3) (dwitt_koubi 0)
@@ -66,7 +66,7 @@ let%expect_test "directions" =
     (North North North North)
     (East East West West)
     (South South)
-    (East East West East)
+    (East East West West)
     (South South) |}]
 ;;
 
@@ -87,7 +87,7 @@ let%expect_test "mirror movements" =
     ((North c) (North d) (North d') (North e))
     ((East f) (East g) (West f') (West g'))
     ((South h) (South i))
-    ((East j) (East k) (West j') (East k'))
+    ((East j) (East k) (West j') (West k'))
     ((South h) (South l)) |}]
 ;;
 

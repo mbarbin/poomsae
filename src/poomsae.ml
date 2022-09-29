@@ -602,7 +602,7 @@ let poomsae_5 =
       ; position = Ap_Koubi_Seugui { front_foot = Right }
       ; technique = Block (Maki { hand = Left; level = Eulgoul })
       }
-    ; { direction = East
+    ; { direction = West
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique =
           Chained
