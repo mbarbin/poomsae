@@ -9,6 +9,9 @@ module Kind : sig
     | Bakkat_Maki
     | Sonnal_Maki
     | Han_Sonnal_Maki
+    | Han_Sonnal_Pitreu_Maki
+    | Are_Hetcheu_Maki
+    | Batangson_Maki
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -28,6 +31,15 @@ type t =
       ; level : Level.t
       }
   | Han_Sonnal_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
+  | Han_Sonnal_Pitreu_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
+  | Are_Hetcheu_Maki of { inner_hand : Side.t }
+  | Batangson_Maki of
       { hand : Side.t
       ; level : Level.t
       }

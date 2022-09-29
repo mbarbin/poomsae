@@ -4,6 +4,7 @@ module Kind : sig
   type t =
     | Ap_Tchagui
     | Yop_Tchagui
+    | Dolyeu_Tchagui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -15,6 +16,10 @@ type t =
       ; level : Level.t
       }
   | Yop_Tchagui of
+      { foot : Side.t
+      ; level : Level.t
+      }
+  | Dolyeu_Tchagui of
       { foot : Side.t
       ; level : Level.t
       }

@@ -7,6 +7,9 @@ module Kind = struct
       | Bakkat_Maki
       | Sonnal_Maki
       | Han_Sonnal_Maki
+      | Han_Sonnal_Pitreu_Maki
+      | Are_Hetcheu_Maki
+      | Batangson_Maki
     [@@deriving equal, compare, enumerate, hash, sexp_of]
   end
 
@@ -31,6 +34,15 @@ type t =
       { hand : Side.t
       ; level : Level.t
       }
+  | Han_Sonnal_Pitreu_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
+  | Are_Hetcheu_Maki of { inner_hand : Side.t }
+  | Batangson_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 let kind : t -> Kind.t = function
@@ -38,6 +50,9 @@ let kind : t -> Kind.t = function
   | Bakkat_Maki _ -> Bakkat_Maki
   | Sonnal_Maki _ -> Sonnal_Maki
   | Han_Sonnal_Maki _ -> Han_Sonnal_Maki
+  | Han_Sonnal_Pitreu_Maki _ -> Han_Sonnal_Pitreu_Maki
+  | Are_Hetcheu_Maki _ -> Are_Hetcheu_Maki
+  | Batangson_Maki _ -> Batangson_Maki
 ;;
 
 let mirror = function
@@ -45,4 +60,9 @@ let mirror = function
   | Bakkat_Maki { hand; level } -> Bakkat_Maki { hand = Side.mirror hand; level }
   | Sonnal_Maki { hand; level } -> Sonnal_Maki { hand = Side.mirror hand; level }
   | Han_Sonnal_Maki { hand; level } -> Han_Sonnal_Maki { hand = Side.mirror hand; level }
+  | Han_Sonnal_Pitreu_Maki { hand; level } ->
+    Han_Sonnal_Pitreu_Maki { hand = Side.mirror hand; level }
+  | Are_Hetcheu_Maki { inner_hand } ->
+    Are_Hetcheu_Maki { inner_hand = Side.mirror inner_hand }
+  | Batangson_Maki { hand; level } -> Batangson_Maki { hand = Side.mirror hand; level }
 ;;

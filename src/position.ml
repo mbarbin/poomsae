@@ -9,6 +9,7 @@ module Kind = struct
       | Wen_Seugui
       | Oren_Seugui
       | Dwitt_Koa
+      | Naranhi_Seugui
     [@@deriving equal, compare, enumerate, hash, sexp_of]
   end
 
@@ -23,15 +24,17 @@ type t =
   | Wen_Seugui
   | Oren_Seugui
   | Dwitt_Koa of { front_foot : Side.t }
+  | Naranhi_Seugui
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
-let front_foot : t -> Side.t = function
+let front_foot : t -> Side.t option = function
   | Ap_Seugui { front_foot }
   | Ap_Koubi_Seugui { front_foot }
   | Dwitt_Koubi { front_foot }
-  | Dwitt_Koa { front_foot } -> front_foot
-  | Wen_Seugui -> Left
-  | Oren_Seugui -> Right
+  | Dwitt_Koa { front_foot } -> Some front_foot
+  | Wen_Seugui -> Some Left
+  | Oren_Seugui -> Some Right
+  | Naranhi_Seugui -> None
 ;;
 
 let kind : t -> Kind.t = function
@@ -41,6 +44,7 @@ let kind : t -> Kind.t = function
   | Wen_Seugui -> Wen_Seugui
   | Oren_Seugui -> Oren_Seugui
   | Dwitt_Koa _ -> Dwitt_Koa
+  | Naranhi_Seugui -> Naranhi_Seugui
 ;;
 
 let mirror = function
@@ -50,4 +54,5 @@ let mirror = function
   | Wen_Seugui -> Oren_Seugui
   | Oren_Seugui -> Wen_Seugui
   | Dwitt_Koa { front_foot = f } -> Dwitt_Koa { front_foot = Side.mirror f }
+  | Naranhi_Seugui -> Naranhi_Seugui
 ;;

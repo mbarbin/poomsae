@@ -46,6 +46,7 @@ module Linear_displacement = struct
     | Dwitt_Koubi { front_foot = Left | Right } -> { zero with dwitt_koubi = 1 }
     | Wen_Seugui | Oren_Seugui -> { zero with wen_or_oren_seugui = 1 }
     | Dwitt_Koa { front_foot = Left | Right } -> { zero with dwitt_koa = 1 }
+    | Naranhi_Seugui -> zero
   ;;
 
   let add_position t (position : Position.t) = add t (of_position position)

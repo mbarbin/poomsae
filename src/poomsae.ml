@@ -629,7 +629,16 @@ let poomsae_5 =
     ]
 ;;
 
-let poomsae_6 = create ~name:"TAE GEUG YOUK JANG" []
+let poomsae_6 =
+  create
+    ~name:"TAE GEUG YOUK JANG"
+    [ { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ]
+;;
+
 let poomsae_7 = create ~name:"TAE GEUG TCHIL JANG" []
 let poomsae_8 = create ~name:"TAE GEUG PAL JANG" []
 
