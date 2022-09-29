@@ -636,6 +636,126 @@ let poomsae_6 =
       ; position = Ap_Koubi_Seugui { front_foot = Left }
       ; technique = Block (Maki { hand = Left; level = Ale })
       }
+    ; { direction = West
+      ; position = Dwitt_Koubi { front_foot = Left }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Block (Bakkat_Maki { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Right; level = Ale })
+      }
+    ; { direction = East
+      ; position = Dwitt_Koubi { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Block (Bakkat_Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block (Han_Sonnal_Pitreu_Maki { hand = Right; level = Eulgoul })
+      }
+    ; { direction = North
+      ; position = Ap_Seugui { front_foot = Right }
+      ; technique = Kick (Dolyeu_Tchagui { foot = Right; level = Eulgoul })
+      }
+    ; { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Block (Bakkat_Maki { hand = Left; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = West
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Block (Bakkat_Maki { hand = Right; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Hand_attack (Jileugui { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Naranhi_Seugui
+      ; technique = Block (Are_Hetcheu_Maki { inner_hand = Left })
+      }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block (Han_Sonnal_Pitreu_Maki { hand = Left; level = Eulgoul })
+      }
+    ; { direction = North
+      ; position = Ap_Seugui { front_foot = Left }
+      ; technique = Kick (Dolyeu_Tchagui { foot = Left; level = Eulgoul })
+      }
+    ; { direction = West (* Rotating going through South *)
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Block (Maki { hand = Right; level = Ale })
+      }
+    ; { direction = West
+      ; position = Dwitt_Koubi { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Block (Bakkat_Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = East
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block (Maki { hand = Left; level = Ale })
+      }
+    ; { direction = East
+      ; position = Dwitt_Koubi { front_foot = Left }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Block (Bakkat_Maki { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Dwitt_Koubi { front_foot = Left }
+      ; technique = Block (Sonnal_Maki { hand = Left; level = Montong })
+      }
+    ; { direction = North (* Moving backwards (Looking North but moving South) *)
+      ; position = Dwitt_Koubi { front_foot = Right }
+      ; technique = Block (Sonnal_Maki { hand = Right; level = Montong })
+      }
+    ; { direction = North (* Moving backwards (Looking North but moving South) *)
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Block (Batangson_Maki { hand = Left; level = Montong })
+            ; Hand_attack (Jileugui { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = North (* Moving backwards (Looking North but moving South) *)
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Block (Batangson_Maki { hand = Right; level = Montong })
+            ; Hand_attack (Jileugui { hand = Left; level = Montong })
+            ]
+      }
     ]
 ;;
 

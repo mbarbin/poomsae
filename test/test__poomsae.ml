@@ -35,7 +35,7 @@ let%expect_test "names" =
     │      3 │ TAE GEUG SAM JANG   │          20 │
     │      4 │ TAE GEUG SA JANG    │          17 │
     │      5 │ TAE GEUG OH JANG    │          20 │
-    │      6 │ TAE GEUG YOUK JANG  │           1 │
+    │      6 │ TAE GEUG YOUK JANG  │          21 │
     │      7 │ TAE GEUG TCHIL JANG │           0 │
     │      8 │ TAE GEUG PAL JANG   │           0 │
     └────────┴─────────────────────┴─────────────┘ |}]
