@@ -53,3 +53,16 @@ the representations as I go along to make that possible.
 
 The tip of the main branch is compiled with odoc and published to
 github pages [here](https://mbarbin.github.io/poomsae/).
+
+## Acknowledgements
+
+I have referred to online resources made available by the French
+Federation of Taekwondo, which helped me a great deal:
+
+- https://www.fftda.fr/
+
+Being able to look at demo videos online is quite helpful too, such as
+the one I mentioned in the introduction. A few others I've looked at:
+
+- https://www.youtube.com/watch?v=FD1yQP_o5Bs
+- https://www.youtube.com/watch?v=j8ee61tXa2s
