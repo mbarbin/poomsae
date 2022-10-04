@@ -5,6 +5,7 @@ module Elements = Elements
 module Hand_attack = Hand_attack
 module Kick = Kick
 module Level = Level
+module Misc_movement = Misc_movement
 module Movement = Movement
 module Position = Position
 module Side = Side

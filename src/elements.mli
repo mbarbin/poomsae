@@ -5,6 +5,7 @@ type t =
   ; blocks : Set.M(Block.Kind).t
   ; hand_attacks : Set.M(Hand_attack.Kind).t
   ; kicks : Set.M(Kick.Kind).t
+  ; misc_movements : Set.M(Misc_movement.Kind).t
   }
 [@@deriving sexp_of]
 

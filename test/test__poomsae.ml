@@ -36,7 +36,7 @@ let%expect_test "names" =
     │      4 │ TAE GEUG SA JANG    │          17 │
     │      5 │ TAE GEUG OH JANG    │          20 │
     │      6 │ TAE GEUG YOUK JANG  │          21 │
-    │      7 │ TAE GEUG TCHIL JANG │           0 │
+    │      7 │ TAE GEUG TCHIL JANG │          11 │
     │      8 │ TAE GEUG PAL JANG   │           0 │
     └────────┴─────────────────────┴─────────────┘ |}]
 ;;
@@ -70,14 +70,14 @@ let%expect_test "displacement_returns_to_origin" =
       ((displacement
         ((north
           ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0)))
+           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
          (west
           ((ap_seugui 1) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0)))
+           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
          (east
           ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0)))
+           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
          (south
           ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0)))))))) |}]
+           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))))))) |}]
 ;;

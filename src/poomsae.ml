@@ -5,6 +5,7 @@ module Elements = Elements
 module Hand_attack = Hand_attack
 module Kick = Kick
 module Level = Level
+module Misc_movement = Misc_movement
 module Movement = Movement
 module Position = Position
 module Side = Side
@@ -759,7 +760,71 @@ let poomsae_6 =
     ]
 ;;
 
-let poomsae_7 = create ~name:"TAE GEUG TCHIL JANG" []
+let poomsae_7 =
+  create
+    ~name:"TAE GEUG TCHIL JANG"
+    [ { direction = West
+      ; position = Beum_Seugui { front_foot = Left }
+      ; technique = Block (Batangson_Maki { hand = Right; level = Montong })
+      }
+    ; { direction = West
+      ; position = Beum_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Right; level = Eulgoul })
+            ; Block (Maki { hand = Left; level = Montong })
+            ]
+      }
+    ; { direction = East
+      ; position = Beum_Seugui { front_foot = Right }
+      ; technique = Block (Batangson_Maki { hand = Left; level = Montong })
+      }
+    ; { direction = East
+      ; position = Beum_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Kick (Ap_Tchagui { foot = Left; level = Eulgoul })
+            ; Block (Maki { hand = Right; level = Montong })
+            ]
+      }
+    ; { direction = North
+      ; position = Dwitt_Koubi { front_foot = Left }
+      ; technique = Block (Sonnal_Maki { hand = Left; level = Ale })
+      }
+    ; { direction = North
+      ; position = Dwitt_Koubi { front_foot = Right }
+      ; technique = Block (Sonnal_Maki { hand = Right; level = Ale })
+      }
+    ; { direction = West
+      ; position = Beum_Seugui { front_foot = Left }
+      ; technique =
+          Chained
+            [ Block (Kodeuro_Batangson_Maki { hand = Right; level = Montong })
+            ; Hand_attack
+                (Kodeuro_Deung_Joumok_Ap_Tchigui { hand = Right; level = Eulgoul })
+            ]
+      }
+    ; { direction = East
+      ; position = Beum_Seugui { front_foot = Right }
+      ; technique =
+          Chained
+            [ Block (Kodeuro_Batangson_Maki { hand = Left; level = Montong })
+            ; Hand_attack
+                (Kodeuro_Deung_Joumok_Ap_Tchigui { hand = Left; level = Eulgoul })
+            ]
+      }
+    ; { direction = North; position = Moa_Seugui; technique = Misc_movement Bo_Joumok }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Right }
+      ; technique = Block Kawi_Maki
+      }
+    ; { direction = North
+      ; position = Ap_Koubi_Seugui { front_foot = Left }
+      ; technique = Block Kawi_Maki
+      }
+    ]
+;;
+
 let poomsae_8 = create ~name:"TAE GEUG PAL JANG" []
 
 let all =

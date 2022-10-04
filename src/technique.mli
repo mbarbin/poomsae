@@ -4,6 +4,7 @@ type t =
   | Block of Block.t
   | Hand_attack of Hand_attack.t
   | Kick of Kick.t
+  | Misc_movement of Misc_movement.t
   | Chained of t list
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 

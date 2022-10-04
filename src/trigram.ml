@@ -41,7 +41,8 @@ let compute_position_valuation (position : Position.Kind.t) =
   | Ap_Koubi_Seugui -> 3
   | Wen_Seugui | Oren_Seugui -> 1
   | Dwitt_Koa -> 1
-  | Naranhi_Seugui -> 0
+  | Naranhi_Seugui | Moa_Seugui -> 0
+  | Beum_Seugui -> 1
 ;;
 
 let compute movements =

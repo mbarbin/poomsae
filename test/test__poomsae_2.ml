@@ -90,14 +90,17 @@ let%expect_test "blocks level" =
       | North ->
         Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
           match technique with
-          | Hand_attack _ | Kick _ | Chained _ -> level
+          | Hand_attack _ | Kick _ | Misc_movement _ | Chained _ -> level
           | Block
               ( Han_Sonnal_Maki _
               | Bakkat_Maki _
               | Sonnal_Maki _
               | Han_Sonnal_Pitreu_Maki _
               | Are_Hetcheu_Maki _
-              | Batangson_Maki _ ) ->
+              | Batangson_Maki _
+              | Kodeuro_Batangson_Maki _
+              | Kawi_Maki
+              | Bakkat_Palmok_Hetcho_Maki ) ->
             raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
           | Block (Maki { hand = Left | Right; level = next_level }) ->
             (match Poomsae.Level.compare level next_level |> Ordering.of_int with
@@ -125,14 +128,17 @@ let%expect_test "blocks level" =
       | West | East ->
         Poomsae.Technique.fold movement.technique ~init:level ~f:(fun level technique ->
           match technique with
-          | Hand_attack _ | Kick _ | Chained _ -> level
+          | Hand_attack _ | Kick _ | Misc_movement _ | Chained _ -> level
           | Block
               ( Han_Sonnal_Maki _
               | Bakkat_Maki _
               | Sonnal_Maki _
               | Han_Sonnal_Pitreu_Maki _
               | Are_Hetcheu_Maki _
-              | Batangson_Maki _ ) ->
+              | Batangson_Maki _
+              | Kodeuro_Batangson_Maki _
+              | Kawi_Maki
+              | Bakkat_Palmok_Hetcho_Maki ) ->
             raise_s [%sexp "Unexpected block", (movement : Poomsae.Movement.t)]
           | Block (Maki { hand = Left | Right; level = next_level }) ->
             (match Poomsae.Level.compare level next_level |> Ordering.of_int with

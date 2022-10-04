@@ -10,6 +10,7 @@ module Kind : sig
     | Me_Jumok_Nelyeu_Tchigui
     | Palkoup_Dolyeu_Tchigui
     | Palkoup_Pyo_Jeuk_Tchigui
+    | Kodeuro_Deung_Joumok_Ap_Tchigui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -30,6 +31,10 @@ type t =
   | Me_Jumok_Nelyeu_Tchigui of { hand : Side.t }
   | Palkoup_Dolyeu_Tchigui of { elbow : Side.t }
   | Palkoup_Pyo_Jeuk_Tchigui of { elbow : Side.t }
+  | Kodeuro_Deung_Joumok_Ap_Tchigui of
+      { hand : Side.t
+      ; level : Level.t
+      }
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 val kind : t -> Kind.t

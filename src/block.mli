@@ -12,6 +12,9 @@ module Kind : sig
     | Han_Sonnal_Pitreu_Maki
     | Are_Hetcheu_Maki
     | Batangson_Maki
+    | Kodeuro_Batangson_Maki
+    | Kawi_Maki
+    | Bakkat_Palmok_Hetcho_Maki
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -43,6 +46,12 @@ type t =
       { hand : Side.t
       ; level : Level.t
       }
+  | Kodeuro_Batangson_Maki of
+      { hand : Side.t
+      ; level : Level.t
+      }
+  | Kawi_Maki
+  | Bakkat_Palmok_Hetcho_Maki
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 val kind : t -> Kind.t

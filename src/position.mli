@@ -9,6 +9,8 @@ module Kind : sig
     | Oren_Seugui
     | Dwitt_Koa
     | Naranhi_Seugui
+    | Beum_Seugui
+    | Moa_Seugui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
   include Comparable.S_plain with type t := t
@@ -22,6 +24,8 @@ type t =
   | Oren_Seugui
   | Dwitt_Koa of { front_foot : Side.t }
   | Naranhi_Seugui
+  | Beum_Seugui of { front_foot : Side.t }
+  | Moa_Seugui
 [@@deriving equal, compare, enumerate, hash, sexp_of]
 
 val front_foot : t -> Side.t option

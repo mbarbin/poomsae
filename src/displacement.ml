@@ -10,6 +10,7 @@ module Linear_displacement = struct
     ; dwitt_koubi : int
     ; wen_or_oren_seugui : int
     ; dwitt_koa : int
+    ; beum_seugui : int
     }
   [@@deriving equal, sexp_of]
 
@@ -19,6 +20,7 @@ module Linear_displacement = struct
     ; dwitt_koubi = 0
     ; wen_or_oren_seugui = 0
     ; dwitt_koa = 0
+    ; beum_seugui = 0
     }
   ;;
 
@@ -28,6 +30,7 @@ module Linear_displacement = struct
     ; dwitt_koubi = t1.dwitt_koubi + t2.dwitt_koubi
     ; wen_or_oren_seugui = t1.wen_or_oren_seugui + t2.wen_or_oren_seugui
     ; dwitt_koa = t1.dwitt_koa + t2.dwitt_koa
+    ; beum_seugui = t1.beum_seugui + t2.beum_seugui
     }
   ;;
 
@@ -37,6 +40,7 @@ module Linear_displacement = struct
     ; dwitt_koubi = t1.dwitt_koubi - t2.dwitt_koubi
     ; wen_or_oren_seugui = t1.wen_or_oren_seugui - t2.wen_or_oren_seugui
     ; dwitt_koa = t1.dwitt_koa - t2.dwitt_koa
+    ; beum_seugui = t1.beum_seugui - t2.beum_seugui
     }
   ;;
 
@@ -46,7 +50,8 @@ module Linear_displacement = struct
     | Dwitt_Koubi { front_foot = Left | Right } -> { zero with dwitt_koubi = 1 }
     | Wen_Seugui | Oren_Seugui -> { zero with wen_or_oren_seugui = 1 }
     | Dwitt_Koa { front_foot = Left | Right } -> { zero with dwitt_koa = 1 }
-    | Naranhi_Seugui -> zero
+    | Naranhi_Seugui | Moa_Seugui -> zero
+    | Beum_Seugui { front_foot = Left | Right } -> { zero with beum_seugui = 1 }
   ;;
 
   let add_position t (position : Position.t) = add t (of_position position)
