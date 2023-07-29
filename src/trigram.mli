@@ -43,22 +43,23 @@ val index : t -> int
 val top_down_line_kinds : t -> Line_kind.t list
 
 (** Build a human representation of the trigram for printing in unit
-   test. To be printed at the same alignement. Example of lines:
+    test. To be printed at the same alignement. Example of lines:
 
-   {[ ["--  --" ; "------" ; "--  --"] ]}
+    {[
+      [ "--  --"; "------"; "--  --" ]
+    ]}
 
-   which would render as:
+    which would render as:
 
-   {[
+    {[
       --  --
       ------
       --  --
-   ]}
-*)
+    ]} *)
 val top_down_lines : t -> string list
 
 (** Try and recompute what is the trigram that matches a given
-   sequence of movements, if any. This is used in tests to understand
-   the logic by which each poomsae is associated with its
-   corresponding trigram. *)
+    sequence of movements, if any. This is used in tests to understand
+    the logic by which each poomsae is associated with its
+    corresponding trigram. *)
 val compute : Movement.t list -> (t * Sexp.t) Or_error.t

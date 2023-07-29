@@ -1,13 +1,13 @@
 open! Core
 
 (** This type is used to calculate the movement of the performer
-   relative to the starting point (origin) of the poomsae, in the 2
-   dimentional space that it occupies while performing the poomsea.
+    relative to the starting point (origin) of the poomsae, in the 2
+    dimentional space that it occupies while performing the poomsea.
 
-   Poomsae are designed such that the performer is expected to arrive
-   at the point of origin upon completing the sequence of movements.
-   This module helps in verifying that particular design
-   characteristic. *)
+    Poomsae are designed such that the performer is expected to arrive
+    at the point of origin upon completing the sequence of movements.
+    This module helps in verifying that particular design
+    characteristic. *)
 
 type t [@@deriving equal, sexp_of]
 

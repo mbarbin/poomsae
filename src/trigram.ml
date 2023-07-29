@@ -139,8 +139,8 @@ let compute movements =
         List.map lateral_displacements ~f:(fun t -> max t.west t.east)
         |> List.sort_and_group ~compare:Int.compare
         |> List.filter_map ~f:(function
-             | [] -> None
-             | hd :: _ -> Some hd)
+          | [] -> None
+          | hd :: _ -> Some hd)
         |> return
       in
       (match absolute_displacements with

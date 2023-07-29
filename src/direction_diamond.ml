@@ -20,38 +20,38 @@ include T
 let singleton a = { north = a; west = a; east = a; south = a }
 
 include Applicative.Make (struct
-  type nonrec 'a t = 'a t
+    type nonrec 'a t = 'a t
 
-  let return = singleton
+    let return = singleton
 
-  let apply f x =
-    { north = f.north x.north
-    ; west = f.west x.west
-    ; east = f.east x.east
-    ; south = f.south x.south
-    }
-  ;;
+    let apply f x =
+      { north = f.north x.north
+      ; west = f.west x.west
+      ; east = f.east x.east
+      ; south = f.south x.south
+      }
+    ;;
 
-  let map = `Custom map
-end)
+    let map = `Custom map
+  end)
 
 include Container.Make (struct
-  type nonrec 'a t = 'a t
+    type nonrec 'a t = 'a t
 
-  let length = `Custom (fun _ -> 4)
+    let length = `Custom (fun _ -> 4)
 
-  let fold t ~init ~f =
-    let f acc field = f acc (Field.get field t) in
-    Fields.fold ~init ~north:f ~west:f ~east:f ~south:f
-  ;;
+    let fold t ~init ~f =
+      let f acc field = f acc (Field.get field t) in
+      Fields.fold ~init ~north:f ~west:f ~east:f ~south:f
+    ;;
 
-  let iter =
-    `Custom
-      (fun t ~f ->
-        let f field = f (Field.get field t) in
-        Fields.iter ~north:f ~west:f ~east:f ~south:f)
-  ;;
-end)
+    let iter =
+      `Custom
+        (fun t ~f ->
+          let f field = f (Field.get field t) in
+          Fields.iter ~north:f ~west:f ~east:f ~south:f)
+    ;;
+  end)
 
 let field : Direction.t -> _ = function
   | North -> Fields.north

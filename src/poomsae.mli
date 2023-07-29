@@ -23,7 +23,7 @@ val movements : t -> Movement.t list
 val elements : t -> Elements.t
 
 (** Poomsaes are designed so that one returns to the original position at
-   the end of all combined displacements. *)
+    the end of all combined displacements. *)
 val displacement_returns_to_origin : t -> unit Or_error.t
 
 val iter_consecutive_movements : t -> f:(Movement.t -> Movement.t -> unit) -> unit
@@ -43,12 +43,12 @@ val poomsae_8 : t
 val all : t list
 
 (** Return all poomsae that are located in [all] prior to the given
-   poomsae. Only works with poomsae that are physically equal to one
-   of [poomsae_1-8]. *)
+    poomsae. Only works with poomsae that are physically equal to one
+    of [poomsae_1-8]. *)
 val preceding_poomsaes : t -> t list
 
 (** Return only the elements that are new compared to the
-   accumultation of elements of the preceding poomsaes. *)
+    accumultation of elements of the preceding poomsaes. *)
 val new_elements : t -> Elements.t
 
 module Maybe_mirror : sig

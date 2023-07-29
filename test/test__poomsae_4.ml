@@ -60,7 +60,7 @@ let%expect_test "directions" =
   List.map (Poomsae.movements poomsae) ~f:(fun t -> t.direction)
   |> Poomsae.Direction.group_by_axis
   |> List.iter ~f:(fun directions ->
-       print_s [%sexp (directions : Poomsae.Direction.t list)]);
+    print_s [%sexp (directions : Poomsae.Direction.t list)]);
   [%expect
     {|
     (West West East East)
