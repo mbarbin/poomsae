@@ -33,9 +33,9 @@ let%expect_test "displacement" =
 ;;
 
 let%expect_test "positions" =
-  (* On the North and South, all positions are [Ap_Seugui]. On the
-     West and East, the first is always an [Ap_Seugui], and if there's
-     a second movement that follows, it is an [Ap_Koubi_Seugui]. *)
+  (* On the North and South, all positions are [Ap_Seugui]. On the West and
+     East, the first is always an [Ap_Seugui], and if there's a second movement
+     that follows, it is an [Ap_Koubi_Seugui]. *)
   let assert_ap_seugui (movement : Poomsae.Movement.t) =
     match movement.position with
     | Ap_Seugui _ -> ()
@@ -77,9 +77,9 @@ let%expect_test "positions" =
 ;;
 
 let%expect_test "blocks level" =
-  (* All blocks that happen on the North direction are in largely
-     increasing levels throughout the poomsae, starting from mid level
-     going up to the highest level. *)
+  (* All blocks that happen on the North direction are in largely increasing
+     levels throughout the poomsae, starting from mid level going up to the
+     highest level. *)
   let level =
     List.fold
       (Poomsae.movements poomsae)
@@ -115,9 +115,9 @@ let%expect_test "blocks level" =
                        }])))
   in
   assert (Poomsae.Level.equal level Eulgoul);
-  (* All blocks that happen on the West and East direction are in
-     largely increasing levels throughout the poomsae, starting from
-     low level going up to the mid level. *)
+  (* All blocks that happen on the West and East direction are in largely
+     increasing levels throughout the poomsae, starting from low level going up
+     to the mid level. *)
   let level =
     List.fold
       (Poomsae.movements poomsae)

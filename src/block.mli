@@ -1,7 +1,7 @@
 open! Core
 
-(** Taekwondo blocks known as Maki are used to stop and deflect an
-    incoming attack. *)
+(** Taekwondo blocks known as Maki are used to stop and deflect an incoming
+    attack. *)
 
 module Kind : sig
   type t =

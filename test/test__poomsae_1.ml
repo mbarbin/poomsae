@@ -35,27 +35,25 @@ let%expect_test "displacement" =
 ;;
 
 let%expect_test "positions" =
-  (* On the West and East directions, all positions are [Ap_Seugui]
-     and on the North and South they are [Ap_Koubi_Seugui], without
-     exceptions. *)
+  (* On the West and East directions, all positions are [Ap_Seugui] and on the
+     North and South they are [Ap_Koubi_Seugui], without exceptions. *)
   List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
     match movement.direction, movement.position with
     | (North | South), Ap_Koubi_Seugui _ | (West | East), Ap_Seugui _ -> ()
     | _ ->
       raise_s [%sexp "Unexpected direction * position", (movement : Poomsae.Movement.t)]);
   [%expect {||}];
-  (* When entering the North or South direction with the
-     [Ap_Koubi_Seugui], it's always from an [Ap_Seugui] position, and
-     the front_foot is the same as it was previously.
+  (* When entering the North or South direction with the [Ap_Koubi_Seugui], it's
+     always from an [Ap_Seugui] position, and the front_foot is the same as it
+     was previously.
 
      When two [Ap_Koubi_Seugui] are consecutive, the foot changes.
 
-     When going on an [Ap_Seugui] from and [Ap_Koubi_Seugui], it's
-     always with the opposite foot.
+     When going on an [Ap_Seugui] from and [Ap_Koubi_Seugui], it's always with
+     the opposite foot.
 
-     When going from an [Ap_Seugui] to an [Ap_Seugui], if the
-     direction changes, the same foot is kept, otherwise the foot is
-     the opposite. *)
+     When going from an [Ap_Seugui] to an [Ap_Seugui], if the direction changes,
+     the same foot is kept, otherwise the foot is the opposite. *)
   Poomsae.iter_consecutive_movements poomsae ~f:(fun m1 m2 ->
     match
       match m2.position with
@@ -145,9 +143,9 @@ let%expect_test "kicks levels" =
 ;;
 
 let%expect_test "blocks level" =
-  (* All blocks that happen on the West and East direction are in
-     largely increasing levels throughout the poomsae, starting from
-     the lower level and going up to the highest level. *)
+  (* All blocks that happen on the West and East direction are in largely
+     increasing levels throughout the poomsae, starting from the lower level and
+     going up to the highest level. *)
   let level =
     List.fold
       (Poomsae.movements poomsae)
@@ -184,9 +182,8 @@ let%expect_test "blocks level" =
   in
   assert (Poomsae.Level.equal level Eulgoul);
   [%expect {||}];
-  (* All blocks that are on the North and South are on Ap_Koubi_Seugui
-     position and Ale level, with the same hand as the foot of the
-     position. *)
+  (* All blocks that are on the North and South are on Ap_Koubi_Seugui position
+     and Ale level, with the same hand as the foot of the position. *)
   List.iter (Poomsae.movements poomsae) ~f:(fun movement ->
     match movement.direction with
     | West | East -> ()
