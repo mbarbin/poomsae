@@ -9,7 +9,7 @@ doc: "https://github.com/mbarbin/poomsae"
 bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
   "ocaml" {>= "5.0"}
-  "dune" {>= "2.0.0"}
+  "dune" {>= "3.11"}
   "core" {>= "v0.15"}
   "core_unix" {>= "v0.15"}
   "ppx_jane" {>= "v0.15"}
