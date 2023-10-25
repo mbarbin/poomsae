@@ -3,4 +3,4 @@
  (public_name poomsae)
  (package poomsae)
  (flags -w +a-4-40-41-42-44-66 -warn-error +a)
- (libraries core core_unix.command_unix poomsae))
+ (libraries core_unix.command_unix poomsae))
