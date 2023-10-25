@@ -1,6 +1,0 @@
-(executable
- (name main)
- (public_name poomsae)
- (package poomsae)
- (flags -w +a-4-40-41-42-44-66 -warn-error +a)
- (libraries core_unix.command_unix poomsae))
