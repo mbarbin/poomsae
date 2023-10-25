@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 (** Taekwondo blocks known as Maki are used to stop and deflect an incoming
     attack. *)
@@ -17,7 +17,7 @@ module Kind : sig
     | Bakkat_Palmok_Hetcho_Maki
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
-  include Comparable.S_plain with type t := t
+  include Comparable.S with type t := t
 end
 
 type t =

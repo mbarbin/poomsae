@@ -1,4 +1,4 @@
-open! Core
+open! Base
 module Block = Block
 module Direction = Direction
 module Elements = Elements
@@ -59,8 +59,3 @@ module Maybe_mirror : sig
 end
 
 val find_mirror_movements : t -> (Movement.t * Maybe_mirror.t) list
-
-(** Command *)
-
-val hello_world : Sexp.t
-val main : Command.t

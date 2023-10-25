@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 (** A container indexed by all 4 cardinal directions. *)
 
@@ -11,7 +11,7 @@ type 'a t =
 [@@deriving equal, compare, enumerate, fields, hash, sexp_of]
 
 include Container.S1 with type 'a t := 'a t
-include Applicative with type 'a t := 'a t
+include Applicative.S with type 'a t := 'a t
 
 val north : 'a t -> 'a
 val west : 'a t -> 'a

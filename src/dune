@@ -2,6 +2,6 @@
  (name poomsae)
  (public_name poomsae)
  (flags -w +a-4-40-41-42-44-66 -warn-error +a)
- (libraries core)
+ (libraries base)
  (preprocess
   (pps ppx_jane)))

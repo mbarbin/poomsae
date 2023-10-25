@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 (** This type is used to calculate the movement of the performer relative to the
     starting point (origin) of the poomsae, in the 2 dimensional space that it

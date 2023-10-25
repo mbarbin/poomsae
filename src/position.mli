@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 module Kind : sig
   type t =
@@ -13,7 +13,7 @@ module Kind : sig
     | Moa_Seugui
   [@@deriving equal, compare, enumerate, hash, sexp_of]
 
-  include Comparable.S_plain with type t := t
+  include Comparable.S with type t := t
 end
 
 type t =

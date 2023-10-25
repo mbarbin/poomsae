@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 module Linear_displacement = struct
   (* So far we didn't need to rely on a relationship between the

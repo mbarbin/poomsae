@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 (** When seen from above, the performer is moving within a 2 dimensional space.
     These values are used to encode the main direction of the movements. *)

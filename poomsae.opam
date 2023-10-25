@@ -10,9 +10,9 @@ bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
   "ocaml" {>= "5.0"}
   "dune" {>= "3.11"}
-  "core" {>= "v0.16"}
-  "core_unix" {>= "v0.16"}
+  "base" {>= "v0.16"}
   "ppx_jane" {>= "v0.16"}
+  "stdio" {>= "v0.16"}
   "textutils" {>= "v0.16"}
 ]
 build: [

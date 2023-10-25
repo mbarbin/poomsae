@@ -1,4 +1,4 @@
-open! Core
+open! Base
 module Block = Block
 module Direction = Direction
 module Elements = Elements
@@ -28,7 +28,7 @@ let displacement_returns_to_origin t =
   if Displacement.equal displacement Displacement.origin
   then Ok ()
   else
-    error_s
+    Or_error.error_s
       [%sexp
         "Poomsae displacement does not return to origin"
         , (t.name : string)
@@ -53,8 +53,8 @@ module Maybe_mirror = struct
 
   let sexp_of_t = function
     | New_movement { index } | Equal { equal_index = index } ->
-      Sexp.Atom (sprintf "%c" (char index))
-    | Mirror { mirror_of_index = index } -> Sexp.Atom (sprintf "%c'" (char index))
+      Sexp.Atom (Printf.sprintf "%c" (char index))
+    | Mirror { mirror_of_index = index } -> Sexp.Atom (Printf.sprintf "%c'" (char index))
   ;;
 end
 
@@ -854,14 +854,3 @@ let new_elements t =
   in
   Elements.diff (elements t) preceding_elements
 ;;
-
-let hello_world = [%sexp "Hello, World!"]
-
-let print_cmd =
-  Command.basic
-    ~summary:"print hello world"
-    (let%map_open.Command () = return () in
-     fun () -> print_s hello_world)
-;;
-
-let main = Command.group ~summary:"" [ "print", print_cmd ]

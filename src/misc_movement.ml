@@ -1,4 +1,4 @@
-open! Core
+open! Base
 
 module Kind = struct
   module T = struct
@@ -6,7 +6,7 @@ module Kind = struct
   end
 
   include T
-  include Comparable.Make_plain (T)
+  include Comparable.Make (T)
 end
 
 type t = Bo_Joumok [@@deriving equal, compare, enumerate, hash, sexp_of]
