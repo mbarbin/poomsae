@@ -1,5 +1,3 @@
-open! Base
-
 (** A type used to refer to a particular hand or foot in a technique. *)
 
 type t =

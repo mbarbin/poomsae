@@ -1,5 +1,3 @@
-open! Base
-
 type t =
   { direction : Direction.t
   ; position : Position.t

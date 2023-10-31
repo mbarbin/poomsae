@@ -1,5 +1,3 @@
-open! Base
-
 module Kind : sig
   type t =
     | Ap_Tchagui

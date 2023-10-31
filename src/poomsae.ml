@@ -1,4 +1,3 @@
-open! Base
 module Block = Block
 module Direction = Direction
 module Elements = Elements

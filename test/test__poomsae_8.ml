@@ -1,6 +1,3 @@
-open! Base
-open! Stdio
-
 let poomsae = Poomsae.poomsae_8
 let index = 1 + List.length (Poomsae.preceding_poomsaes poomsae)
 

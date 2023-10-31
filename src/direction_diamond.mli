@@ -1,5 +1,3 @@
-open! Base
-
 (** A container indexed by all 4 cardinal directions. *)
 
 type 'a t =

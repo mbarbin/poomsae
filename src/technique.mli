@@ -1,5 +1,3 @@
-open! Base
-
 type t =
   | Block of Block.t
   | Hand_attack of Hand_attack.t

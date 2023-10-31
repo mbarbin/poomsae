@@ -1,5 +1,3 @@
-open! Base
-
 type t =
   { positions : Set.M(Position.Kind).t [@sexp_drop_if Set.is_empty]
   ; blocks : Set.M(Block.Kind).t [@sexp_drop_if Set.is_empty]

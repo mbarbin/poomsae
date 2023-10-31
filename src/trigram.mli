@@ -1,5 +1,3 @@
-open! Base
-
 (** Trigrams are symbols constituted by 3 horizontal lines which may each be
     broken down into two parts.
 

@@ -1,5 +1,3 @@
-open! Base
-
 (** A list of movements that appear in poomsae but are not classified as blocks,
     or attacks. *)
 

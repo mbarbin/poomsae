@@ -1,5 +1,3 @@
-open! Base
-
 (** Taekwondo blocks known as Maki are used to stop and deflect an incoming
     attack. *)
 

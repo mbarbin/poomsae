@@ -1,5 +1,3 @@
-open! Base
-
 module Line_kind = struct
   type t =
     | Plain

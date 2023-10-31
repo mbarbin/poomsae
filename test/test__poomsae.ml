@@ -1,6 +1,3 @@
-open! Base
-open! Stdio
-
 let%expect_test "names" =
   let module Row = struct
     type t =

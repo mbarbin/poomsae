@@ -1,5 +1,3 @@
-open! Base
-
 module Kind = struct
   module T = struct
     type t = Bo_Joumok [@@deriving equal, compare, enumerate, hash, sexp_of]

@@ -1,5 +1,3 @@
-open! Base
-
 type t =
   { positions : Set.M(Position.Kind).t
   ; blocks : Set.M(Block.Kind).t

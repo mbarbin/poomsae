@@ -1,5 +1,3 @@
-open! Base
-
 module T = struct
   type 'a t =
     { north : 'a
