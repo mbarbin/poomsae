@@ -8,7 +8,7 @@ homepage: "https://github.com/mbarbin/poomsae"
 doc: "https://github.com/mbarbin/poomsae"
 bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
-  "ocaml" {>= "5.0"}
+  "ocaml" {>= "5.1"}
   "dune" {>= "3.11"}
   "base" {>= "v0.16"}
   "ppx_jane" {>= "v0.16"}
