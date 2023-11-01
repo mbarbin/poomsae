@@ -5,7 +5,7 @@ maintainer: "Mathieu Barbin"
 authors: "Mathieu Barbin"
 license: "MIT"
 homepage: "https://github.com/mbarbin/poomsae"
-doc: "https://github.com/mbarbin/poomsae"
+doc: "https://mbarbin.github.io/poomsae/"
 bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
   "ocaml" {>= "5.1"}

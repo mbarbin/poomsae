@@ -52,7 +52,7 @@ the representations as I go along to make that possible.
 ## Code documentation
 
 The tip of the main branch is compiled with odoc and published to
-github pages [here](https://mbarbin.github.io/poomsae/).
+GitHub pages [here](https://mbarbin.github.io/poomsae/).
 
 ## Acknowledgements
 
