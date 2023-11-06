@@ -1,6 +1,15 @@
 (library
  (name poomsae_test)
- (flags -w +a-4-40-41-42-44-66 -warn-error +a -open Base -open Stdio)
+ (flags
+  :standard
+  -w
+  +a-4-40-41-42-44-45-66
+  -warn-error
+  +a
+  -open
+  Base
+  -open
+  Stdio)
  (libraries base poomsae stdio textutils.ascii_table)
  (inline_tests)
  (preprocess
