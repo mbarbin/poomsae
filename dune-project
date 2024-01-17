@@ -18,7 +18,6 @@
 (package
  (name poomsae)
  (synopsis "Studying some Taekwondo poomsae")
- (description "Studying some Taekwondo poomsae")
  (depends
   (ocaml
    (>= 5.1))
