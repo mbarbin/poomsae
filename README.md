@@ -1,7 +1,6 @@
 # poomsae
 
 [![CI Status](https://github.com/mbarbin/poomsae/workflows/ci/badge.svg)](https://github.com/mbarbin/poomsae/actions/workflows/ci.yml)
-[![Deploy odoc Status](https://github.com/mbarbin/poomsae/workflows/deploy-odoc/badge.svg)](https://github.com/mbarbin/poomsae/actions/workflows/deploy-odoc.yml)
 
 This is a toy project meant to help me studying Taekwondo's poomsaes.
 
@@ -51,8 +50,8 @@ the representations as I go along to make that possible.
 
 ## Code documentation
 
-The tip of the main branch is compiled with odoc and published to
-GitHub pages [here](https://mbarbin.github.io/poomsae/).
+The code documentation of the latest release is built with `odoc` and published
+to `GitHub` pages [here](https://mbarbin.github.io/poomsae).
 
 ## Acknowledgements
 
