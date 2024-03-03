@@ -9,8 +9,8 @@
   -open
   Base
   -open
-  Stdio)
- (libraries base poomsae stdio textutils.ascii_table)
+  Expect_test_helpers)
+ (libraries base expect-test-helpers poomsae textutils.ascii_table)
  (inline_tests)
  (lint
   (pps ppx_js_style -check-doc-comments))

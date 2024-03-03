@@ -16,8 +16,10 @@ let%expect_test "elements" =
     {|
     ((positions (Ap_Koubi_Seugui Dwitt_Koubi Wen_Seugui Oren_Seugui Dwitt_Koa))
      (blocks (Maki Han_Sonnal_Maki))
-     (hand_attacks
-      (Deung_Joumok_Ap_Tchigui Me_Jumok_Nelyeu_Tchigui Palkoup_Dolyeu_Tchigui
+     (hand_attacks (
+       Deung_Joumok_Ap_Tchigui
+       Me_Jumok_Nelyeu_Tchigui
+       Palkoup_Dolyeu_Tchigui
        Palkoup_Pyo_Jeuk_Tchigui))
      (kicks (Ap_Tchagui Yop_Tchagui))) |}]
 ;;
@@ -27,8 +29,8 @@ let%expect_test "new elements" =
   [%expect
     {|
     ((positions (Wen_Seugui Oren_Seugui Dwitt_Koa))
-     (hand_attacks
-      (Me_Jumok_Nelyeu_Tchigui Palkoup_Dolyeu_Tchigui Palkoup_Pyo_Jeuk_Tchigui))) |}]
+     (hand_attacks (
+       Me_Jumok_Nelyeu_Tchigui Palkoup_Dolyeu_Tchigui Palkoup_Pyo_Jeuk_Tchigui))) |}]
 ;;
 
 let%expect_test "displacement" =
@@ -36,21 +38,39 @@ let%expect_test "displacement" =
   print_s [%sexp (Poomsae.displacement_returns_to_origin poomsae : unit Or_error.t)];
   [%expect
     {|
-    (Error
-     ("Poomsae displacement does not return to origin" "TAE GEUG OH JANG"
-      ((displacement
-        ((north
-          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (west
-          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 1)
-           (wen_or_oren_seugui 1) (dwitt_koa 0) (beum_seugui 0)))
-         (east
-          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 1)
-           (wen_or_oren_seugui 1) (dwitt_koa 0) (beum_seugui 0)))
-         (south
-          ((ap_seugui 0) (ap_koubi_seugui 3) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 1) (beum_seugui 0)))))))) |}]
+    (Error (
+      "Poomsae displacement does not return to origin"
+      "TAE GEUG OH JANG"
+      ((
+        displacement (
+          (north (
+            (ap_seugui          0)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (west (
+            (ap_seugui          0)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        1)
+            (wen_or_oren_seugui 1)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (east (
+            (ap_seugui          0)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        1)
+            (wen_or_oren_seugui 1)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (south (
+            (ap_seugui          0)
+            (ap_koubi_seugui    3)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          1)
+            (beum_seugui        0)))))))) |}]
 ;;
 
 let%expect_test "directions" =
@@ -81,12 +101,26 @@ let%expect_test "mirror movements" =
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
   [%expect
     {|
-    ((West a) (West b) (East a') (East b'))
-    ((North c) (North d) (North d') (North e))
-    ((East f) (East g) (West f') (West g'))
-    ((South h) (South i))
-    ((East j) (East k) (West j') (West k'))
-    ((South h) (South l)) |}]
+    ((West a)
+     (West b)
+     (East a')
+     (East b'))
+    ((North c)
+     (North d)
+     (North d')
+     (North e))
+    ((East f)
+     (East g)
+     (West f')
+     (West g'))
+    ((South h)
+     (South i))
+    ((East j)
+     (East k)
+     (West j')
+     (West k'))
+    ((South h)
+     (South l)) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -101,9 +135,13 @@ let%expect_test "trigram" =
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Ok
-     (((top_line Plain) (middle_line Plain) (bottom_line Two_parts))
-      ((lateral_displacements
-        ((12 ((west 0) (east 4))) (6 ((west 0) (east 6)))
-         (0 ((west 3) (east 2)))))))) |}]
+    (Ok (
+      ((top_line    Plain)
+       (middle_line Plain)
+       (bottom_line Two_parts))
+      ((
+        lateral_displacements (
+          (12 ((west 0) (east 4)))
+          (6  ((west 0) (east 6)))
+          (0  ((west 3) (east 2)))))))) |}]
 ;;

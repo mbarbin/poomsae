@@ -15,15 +15,17 @@ let%expect_test "elements" =
   [%expect
     {|
     ((positions (Ap_Seugui Ap_Koubi_Seugui Dwitt_Koubi))
-     (blocks (Maki Han_Sonnal_Maki))
-     (hand_attacks (Jileugui Han_Sonnal_Mok_Tchigui)) (kicks (Ap_Tchagui))) |}]
+     (blocks       (Maki     Han_Sonnal_Maki))
+     (hand_attacks (Jileugui Han_Sonnal_Mok_Tchigui))
+     (kicks (Ap_Tchagui))) |}]
 ;;
 
 let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions (Dwitt_Koubi)) (blocks (Han_Sonnal_Maki))
+    ((positions    (Dwitt_Koubi))
+     (blocks       (Han_Sonnal_Maki))
      (hand_attacks (Han_Sonnal_Mok_Tchigui))) |}]
 ;;
 
@@ -61,12 +63,26 @@ let%expect_test "mirror movements" =
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
   [%expect
     {|
-    ((West a) (West b) (East a') (East b'))
-    ((North c) (North c'))
-    ((West d) (West e) (East d') (East e'))
-    ((North f) (North f'))
-    ((East a) (East b) (West a') (West b'))
-    ((South g) (South g') (South h) (South h')) |}]
+    ((West a)
+     (West b)
+     (East a')
+     (East b'))
+    ((North c)
+     (North c'))
+    ((West d)
+     (West e)
+     (East d')
+     (East e'))
+    ((North f)
+     (North f'))
+    ((East a)
+     (East b)
+     (West a')
+     (West b'))
+    ((South g)
+     (South g')
+     (South h)
+     (South h')) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -82,8 +98,13 @@ let%expect_test "trigram" =
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Ok
-     (((top_line Plain) (middle_line Two_parts) (bottom_line Plain))
-      ((lateral_displacements
-        ((4 ((west 0) (east 4))) (2 ((west 3) (east 0))) (0 ((west 4) (east 0)))))))) |}]
+    (Ok (
+      ((top_line    Plain)
+       (middle_line Two_parts)
+       (bottom_line Plain))
+      ((
+        lateral_displacements (
+          (4 ((west 0) (east 4)))
+          (2 ((west 3) (east 0)))
+          (0 ((west 4) (east 0)))))))) |}]
 ;;

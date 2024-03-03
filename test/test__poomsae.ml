@@ -63,19 +63,37 @@ let%expect_test "displacement_returns_to_origin" =
   print_s [%sexp (Poomsae.displacement_returns_to_origin poomsae : unit Or_error.t)];
   [%expect
     {|
-    (Error
-     ("Poomsae displacement does not return to origin" BOGUS
-      ((displacement
-        ((north
-          ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (west
-          ((ap_seugui 1) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (east
-          ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (south
-          ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))))))) |}]
+    (Error (
+      "Poomsae displacement does not return to origin"
+      BOGUS
+      ((
+        displacement (
+          (north (
+            (ap_seugui          1)
+            (ap_koubi_seugui    1)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (west (
+            (ap_seugui          1)
+            (ap_koubi_seugui    0)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (east (
+            (ap_seugui          0)
+            (ap_koubi_seugui    0)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (south (
+            (ap_seugui          0)
+            (ap_koubi_seugui    0)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))))))) |}]
 ;;

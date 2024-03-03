@@ -14,8 +14,10 @@ let%expect_test "elements" =
   print_s [%sexp (Poomsae.elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions (Ap_Seugui Ap_Koubi_Seugui)) (blocks (Maki))
-     (hand_attacks (Jileugui)) (kicks (Ap_Tchagui))) |}]
+    ((positions (Ap_Seugui Ap_Koubi_Seugui))
+     (blocks       (Maki))
+     (hand_attacks (Jileugui))
+     (kicks        (Ap_Tchagui))) |}]
 ;;
 
 let%expect_test "new elements" =
@@ -182,12 +184,24 @@ let%expect_test "mirror movements" =
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
   [%expect
     {|
-    ((West a) (West b) (East a') (East b'))
-    ((North c) (North c'))
-    ((West a) (West d) (East a') (East d'))
-    ((North e) (North e'))
-    ((East c) (West c'))
-    ((South a) (South f) (South f') (South f)) |}]
+    ((West a)
+     (West b)
+     (East a')
+     (East b'))
+    ((North c)
+     (North c'))
+    ((West a)
+     (West d)
+     (East a')
+     (East d'))
+    ((North e)
+     (North e'))
+    ((East c)
+     (West c'))
+    ((South a)
+     (South f)
+     (South f')
+     (South f)) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -203,8 +217,13 @@ let%expect_test "trigram" =
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Ok
-     (((top_line Two_parts) (middle_line Plain) (bottom_line Plain))
-      ((lateral_displacements
-        ((4 ((west 0) (east 1))) (2 ((west 4) (east 0))) (0 ((west 4) (east 0)))))))) |}]
+    (Ok (
+      ((top_line    Two_parts)
+       (middle_line Plain)
+       (bottom_line Plain))
+      ((
+        lateral_displacements (
+          (4 ((west 0) (east 1)))
+          (2 ((west 4) (east 0)))
+          (0 ((west 4) (east 0)))))))) |}]
 ;;

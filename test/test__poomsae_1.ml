@@ -14,16 +14,20 @@ let%expect_test "elements" =
   print_s [%sexp (Poomsae.elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions (Ap_Seugui Ap_Koubi_Seugui)) (blocks (Maki))
-     (hand_attacks (Jileugui)) (kicks (Ap_Tchagui))) |}]
+    ((positions (Ap_Seugui Ap_Koubi_Seugui))
+     (blocks       (Maki))
+     (hand_attacks (Jileugui))
+     (kicks        (Ap_Tchagui))) |}]
 ;;
 
 let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
   [%expect
     {|
-    ((positions (Ap_Seugui Ap_Koubi_Seugui)) (blocks (Maki))
-     (hand_attacks (Jileugui)) (kicks (Ap_Tchagui))) |}]
+    ((positions (Ap_Seugui Ap_Koubi_Seugui))
+     (blocks       (Maki))
+     (hand_attacks (Jileugui))
+     (kicks        (Ap_Tchagui))) |}]
 ;;
 
 let%expect_test "displacement" =
@@ -245,12 +249,22 @@ let%expect_test "mirror movements" =
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
   [%expect
     {|
-    ((West a) (West b) (East a') (East b'))
+    ((West a)
+     (West b)
+     (East a')
+     (East b'))
     ((North c))
-    ((East d) (East e) (West d') (West e'))
+    ((East d)
+     (East e)
+     (West d')
+     (West e'))
     ((North c'))
-    ((West f) (West g) (East f') (East g'))
-    ((South h) (South i)) |}]
+    ((West f)
+     (West g)
+     (East f')
+     (East g'))
+    ((South h)
+     (South i)) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -266,8 +280,13 @@ let%expect_test "trigram" =
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Ok
-     (((top_line Plain) (middle_line Plain) (bottom_line Plain))
-      ((lateral_displacements
-        ((6 ((west 2) (east 0))) (3 ((west 0) (east 2))) (0 ((west 2) (east 0)))))))) |}]
+    (Ok (
+      ((top_line    Plain)
+       (middle_line Plain)
+       (bottom_line Plain))
+      ((
+        lateral_displacements (
+          (6 ((west 2) (east 0)))
+          (3 ((west 0) (east 2)))
+          (0 ((west 2) (east 0)))))))) |}]
 ;;

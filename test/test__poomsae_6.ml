@@ -15,10 +15,15 @@ let%expect_test "elements" =
   [%expect
     {|
     ((positions (Ap_Seugui Ap_Koubi_Seugui Dwitt_Koubi Naranhi_Seugui))
-     (blocks
-      (Maki Bakkat_Maki Sonnal_Maki Han_Sonnal_Pitreu_Maki Are_Hetcheu_Maki
+     (blocks (
+       Maki
+       Bakkat_Maki
+       Sonnal_Maki
+       Han_Sonnal_Pitreu_Maki
+       Are_Hetcheu_Maki
        Batangson_Maki))
-     (hand_attacks (Jileugui)) (kicks (Ap_Tchagui Dolyeu_Tchagui))) |}]
+     (hand_attacks (Jileugui))
+     (kicks (Ap_Tchagui Dolyeu_Tchagui))) |}]
 ;;
 
 let%expect_test "new elements" =
@@ -35,21 +40,39 @@ let%expect_test "displacement" =
   print_s [%sexp (Poomsae.displacement_returns_to_origin poomsae : unit Or_error.t)];
   [%expect
     {|
-    (Error
-     ("Poomsae displacement does not return to origin" "TAE GEUG YOUK JANG"
-      ((displacement
-        ((north
-          ((ap_seugui 2) (ap_koubi_seugui 4) (dwitt_koubi 2)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (west
-          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 2)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (east
-          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 2)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (south
-          ((ap_seugui 0) (ap_koubi_seugui 0) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))))))) |}]
+    (Error (
+      "Poomsae displacement does not return to origin"
+      "TAE GEUG YOUK JANG"
+      ((
+        displacement (
+          (north (
+            (ap_seugui          2)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        2)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (west (
+            (ap_seugui          0)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        2)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (east (
+            (ap_seugui          0)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        2)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (south (
+            (ap_seugui          0)
+            (ap_koubi_seugui    0)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))))))) |}]
 ;;
 
 let%expect_test "directions" =
@@ -80,12 +103,27 @@ let%expect_test "mirror movements" =
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
   [%expect
     {|
-    ((West a) (West b) (East a') (East b'))
-    ((North c) (North d))
-    ((West e) (West f) (East e') (East f'))
-    ((North g) (North h) (North d'))
-    ((West a') (West b') (East a) (East b))
-    ((North i) (North i') (North j) (North j')) |}]
+    ((West a)
+     (West b)
+     (East a')
+     (East b'))
+    ((North c)
+     (North d))
+    ((West e)
+     (West f)
+     (East e')
+     (East f'))
+    ((North g)
+     (North h)
+     (North d'))
+    ((West a')
+     (West b')
+     (East a)
+     (East b))
+    ((North i)
+     (North i')
+     (North j)
+     (North j')) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -100,8 +138,13 @@ let%expect_test "trigram" =
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Ok
-     (((top_line Two_parts) (middle_line Plain) (bottom_line Two_parts))
-      ((lateral_displacements
-        ((8 ((west 3) (east 2))) (4 ((west 6) (east 0))) (0 ((west 3) (east 2)))))))) |}]
+    (Ok (
+      ((top_line    Two_parts)
+       (middle_line Plain)
+       (bottom_line Two_parts))
+      ((
+        lateral_displacements (
+          (8 ((west 3) (east 2)))
+          (4 ((west 6) (east 0)))
+          (0 ((west 3) (east 2)))))))) |}]
 ;;

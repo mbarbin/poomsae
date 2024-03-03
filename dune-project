@@ -25,6 +25,11 @@
    (and
     (>= v0.16)
     (< v0.17)))
+  (expect-test-helpers
+   (and
+    :with-test
+    (>= v0.16)
+    (< v0.17)))
   (ppx_compare
    (and
     (>= v0.16)
@@ -64,10 +69,6 @@
     (>= v0.16)
     (< v0.17)))
   (ppx_sexp_value
-   (and
-    (>= v0.16)
-    (< v0.17)))
-  (stdio
    (and
     (>= v0.16)
     (< v0.17)))

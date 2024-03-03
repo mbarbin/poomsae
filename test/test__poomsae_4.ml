@@ -15,9 +15,11 @@ let%expect_test "elements" =
   [%expect
     {|
     ((positions (Ap_Seugui Ap_Koubi_Seugui Dwitt_Koubi))
-     (blocks (Maki Bakkat_Maki Sonnal_Maki))
-     (hand_attacks
-      (Jileugui Jebipoum_Mok_Tchigui Pyon_Sonn_Seo_Jileugui
+     (blocks    (Maki      Bakkat_Maki     Sonnal_Maki))
+     (hand_attacks (
+       Jileugui
+       Jebipoum_Mok_Tchigui
+       Pyon_Sonn_Seo_Jileugui
        Deung_Joumok_Ap_Tchigui))
      (kicks (Ap_Tchagui Yop_Tchagui))) |}]
 ;;
@@ -27,8 +29,8 @@ let%expect_test "new elements" =
   [%expect
     {|
     ((blocks (Bakkat_Maki Sonnal_Maki))
-     (hand_attacks
-      (Jebipoum_Mok_Tchigui Pyon_Sonn_Seo_Jileugui Deung_Joumok_Ap_Tchigui))
+     (hand_attacks (
+       Jebipoum_Mok_Tchigui Pyon_Sonn_Seo_Jileugui Deung_Joumok_Ap_Tchigui))
      (kicks (Yop_Tchagui))) |}]
 ;;
 
@@ -37,21 +39,39 @@ let%expect_test "displacement" =
   print_s [%sexp (Poomsae.displacement_returns_to_origin poomsae : unit Or_error.t)];
   [%expect
     {|
-    (Error
-     ("Poomsae displacement does not return to origin" "TAE GEUG SA JANG"
-      ((displacement
-        ((north
-          ((ap_seugui 0) (ap_koubi_seugui 2) (dwitt_koubi 1)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (west
-          ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 3)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (east
-          ((ap_seugui 1) (ap_koubi_seugui 1) (dwitt_koubi 3)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))
-         (south
-          ((ap_seugui 0) (ap_koubi_seugui 4) (dwitt_koubi 0)
-           (wen_or_oren_seugui 0) (dwitt_koa 0) (beum_seugui 0)))))))) |}]
+    (Error (
+      "Poomsae displacement does not return to origin"
+      "TAE GEUG SA JANG"
+      ((
+        displacement (
+          (north (
+            (ap_seugui          0)
+            (ap_koubi_seugui    2)
+            (dwitt_koubi        1)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (west (
+            (ap_seugui          1)
+            (ap_koubi_seugui    1)
+            (dwitt_koubi        3)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (east (
+            (ap_seugui          1)
+            (ap_koubi_seugui    1)
+            (dwitt_koubi        3)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))
+          (south (
+            (ap_seugui          0)
+            (ap_koubi_seugui    4)
+            (dwitt_koubi        0)
+            (wen_or_oren_seugui 0)
+            (dwitt_koa          0)
+            (beum_seugui        0)))))))) |}]
 ;;
 
 let%expect_test "directions" =
@@ -82,12 +102,23 @@ let%expect_test "mirror movements" =
     print_s [%sexp (movements : (Poomsae.Direction.t * Poomsae.Maybe_mirror.t) list)]);
   [%expect
     {|
-    ((West a) (West b) (East a') (East b'))
-    ((North c) (North d) (North e))
-    ((East f) (East g) (West f') (West g'))
-    ((South c) (South h))
-    ((East i) (West i'))
-    ((South j) (South j')) |}]
+    ((West a)
+     (West b)
+     (East a')
+     (East b'))
+    ((North c)
+     (North d)
+     (North e))
+    ((East f)
+     (East g)
+     (West f')
+     (West g'))
+    ((South c)
+     (South h))
+    ((East i)
+     (West i'))
+    ((South j)
+     (South j')) |}]
 ;;
 
 let%expect_test "trigram" =
@@ -103,8 +134,13 @@ let%expect_test "trigram" =
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
   [%expect
     {|
-    (Ok
-     (((top_line Two_parts) (middle_line Two_parts) (bottom_line Plain))
-      ((lateral_displacements
-        ((7 ((west 0) (east 1))) (1 ((west 0) (east 1))) (0 ((west 4) (east 0)))))))) |}]
+    (Ok (
+      ((top_line    Two_parts)
+       (middle_line Two_parts)
+       (bottom_line Plain))
+      ((
+        lateral_displacements (
+          (7 ((west 0) (east 1)))
+          (1 ((west 0) (east 1)))
+          (0 ((west 4) (east 0)))))))) |}]
 ;;
