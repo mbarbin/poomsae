@@ -8,7 +8,7 @@ homepage: "https://github.com/mbarbin/poomsae"
 doc: "https://mbarbin.github.io/poomsae/"
 bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
-  "dune" {>= "3.15"}
+  "dune" {>= "3.16"}
   "ocaml" {>= "5.1"}
   "base" {>= "v0.17" & < "v0.18"}
   "expect-test-helpers" {with-test & >= "v0.17" & < "v0.18"}
