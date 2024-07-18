@@ -72,6 +72,8 @@
    (and
     (>= v0.17)
     (< v0.18)))
+  (ppxlib
+   (>= 0.32))
   (textutils
    (and
     (>= v0.17)
