@@ -48,7 +48,7 @@ have chosen are truthful to actual Taekwondo's technique.
 My plan is to try and cover all 8 Taegeuk poomsaes, and fix and refine
 the representations as I go along to make that possible.
 
-## Code documentation
+## Code Documentation
 
 The code documentation of the latest release is built with `odoc` and published
 to `GitHub` pages [here](https://mbarbin.github.io/poomsae).
