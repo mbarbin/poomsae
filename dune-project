@@ -15,6 +15,8 @@
 
 (documentation "https://mbarbin.github.io/poomsae/")
 
+(implicit_transitive_deps false)
+
 (package
  (name poomsae)
  (synopsis "Studying some Taekwondo poomsae")
