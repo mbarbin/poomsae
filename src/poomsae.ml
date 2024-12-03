@@ -30,8 +30,8 @@ let displacement_returns_to_origin t =
     Or_error.error_s
       [%sexp
         "Poomsae displacement does not return to origin"
-        , (t.name : string)
-        , { displacement : Displacement.t }]
+      , (t.name : string)
+      , { displacement : Displacement.t }]
 ;;
 
 let iter_consecutive_movements t ~f =
@@ -66,9 +66,10 @@ let find_mirror_movements t =
           List.find_mapi indices ~f:(fun index m ->
             if Movement.equal movement { m with direction = movement.direction }
             then Some (Maybe_mirror.Equal { equal_index = index })
-            else if Movement.equal
-                      (Movement.mirror movement)
-                      { m with direction = movement.direction }
+            else if
+              Movement.equal
+                (Movement.mirror movement)
+                { m with direction = movement.direction }
             then Some (Maybe_mirror.Mirror { mirror_of_index = index })
             else None)
         with

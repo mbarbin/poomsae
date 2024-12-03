@@ -17,7 +17,8 @@ let%expect_test "elements" =
 
 let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
-  [%expect {|
+  [%expect
+    {|
     () |}]
 ;;
 
@@ -56,6 +57,7 @@ let%expect_test "trigram" =
     t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
   [%expect {||}];
   print_s [%sexp (trigram : (Poomsae.Trigram.t * Sexp.t) Or_error.t)];
-  [%expect {|
+  [%expect
+    {|
     (Error ("Unexpected displacements" ((lateral_displacements ())))) |}]
 ;;

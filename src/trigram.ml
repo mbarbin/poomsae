@@ -156,5 +156,5 @@ let compute movements =
     Or_error.error_s
       [%sexp
         "Unexpected displacements"
-        , { lateral_displacements : (int * Lateral_displacement.t) list }]
+      , { lateral_displacements : (int * Lateral_displacement.t) list }]
 ;;

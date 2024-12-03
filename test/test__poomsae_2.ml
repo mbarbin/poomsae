@@ -22,7 +22,8 @@ let%expect_test "elements" =
 
 let%expect_test "new elements" =
   print_s [%sexp (Poomsae.new_elements poomsae : Poomsae.Elements.t)];
-  [%expect {|
+  [%expect
+    {|
     () |}]
 ;;
 
@@ -72,7 +73,7 @@ let%expect_test "positions" =
       raise_s
         [%sexp
           "Unexpected position change"
-          , { m1 : Poomsae.Movement.t; m2 : Poomsae.Movement.t }]);
+        , { m1 : Poomsae.Movement.t; m2 : Poomsae.Movement.t }]);
   ()
 ;;
 
@@ -109,10 +110,10 @@ let%expect_test "blocks level" =
                  raise_s
                    [%sexp
                      "Unexpected level"
-                     , (movement : Poomsae.Movement.t)
-                     , { previous_level = (level : Poomsae.Level.t)
-                       ; next_level : Poomsae.Level.t
-                       }])))
+                   , (movement : Poomsae.Movement.t)
+                   , { previous_level = (level : Poomsae.Level.t)
+                     ; next_level : Poomsae.Level.t
+                     }])))
   in
   assert (Poomsae.Level.equal level Eulgoul);
   (* All blocks that happen on the West and East direction are in largely
@@ -147,10 +148,10 @@ let%expect_test "blocks level" =
                  raise_s
                    [%sexp
                      "Unexpected level"
-                     , (movement : Poomsae.Movement.t)
-                     , { previous_level = (level : Poomsae.Level.t)
-                       ; next_level : Poomsae.Level.t
-                       }])))
+                   , (movement : Poomsae.Movement.t)
+                   , { previous_level = (level : Poomsae.Level.t)
+                     ; next_level : Poomsae.Level.t
+                     }])))
   in
   assert (Poomsae.Level.equal level Montong);
   ()
@@ -209,7 +210,8 @@ let%expect_test "trigram" =
   Or_error.iter trigram ~f:(fun t ->
     assert (index = Poomsae.Trigram.index (fst t));
     t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
-  [%expect {|
+  [%expect
+    {|
     --  --
     ------
     ------

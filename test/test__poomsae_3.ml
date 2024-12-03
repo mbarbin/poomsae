@@ -90,7 +90,8 @@ let%expect_test "trigram" =
   Or_error.iter trigram ~f:(fun t ->
     assert (index = Poomsae.Trigram.index (fst t));
     t |> fst |> Poomsae.Trigram.top_down_lines |> List.iter ~f:print_endline);
-  [%expect {|
+  [%expect
+    {|
     ------
     --  --
     ------
