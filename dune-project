@@ -130,4 +130,8 @@
   (textutils
    (and
     (>= v0.17)
-    (< v0.18)))))
+    (< v0.18)))
+  (sherlodoc
+   (and
+    :with-doc
+    (>= 0.2)))))
