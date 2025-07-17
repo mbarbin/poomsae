@@ -42,9 +42,7 @@
   (ppx_sexp_value
    (>= v0.17))
   (ppxlib
-   (>= 0.33))
-  (textutils
-   (>= v0.17))))
+   (>= 0.33))))
 
 (package
  (name poomsae-tests)
@@ -58,6 +56,8 @@
     (= 0.27.0)))
   (base
    (>= v0.17))
+  (crs
+   (>= 0.0.20250705))
   (expect_test_helpers_core
    (>= v0.17))
   (ppx_compare
@@ -84,8 +84,6 @@
    (>= v0.17))
   (ppxlib
    (>= 0.33))
-  (textutils
-   (>= v0.17))
   (sherlodoc
    (and
     :with-doc
