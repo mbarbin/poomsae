@@ -56,8 +56,6 @@
     (= 0.27.0)))
   (base
    (>= v0.17))
-  (crs
-   (>= 0.0.20250705))
   (expect_test_helpers_core
    (>= v0.17))
   (ppx_compare
@@ -84,6 +82,8 @@
    (>= v0.17))
   (ppxlib
    (>= 0.33))
+  (print-table
+   (>= 0.1.0))
   (sherlodoc
    (and
     :with-doc

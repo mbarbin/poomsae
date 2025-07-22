@@ -8,7 +8,7 @@ let%expect_test "names" =
   end
   in
   let columns =
-    Text_table.O.
+    Print_table.O.
       [ Column.make ~header:"Number" ~align:Right (fun (t : Row.t) ->
           Cell.text (Int.to_string t.number))
       ; Column.make ~header:"Name" (fun (t : Row.t) -> Cell.text t.name)
@@ -23,7 +23,7 @@ let%expect_test "names" =
       ; movements = List.length (Poomsae.movements t)
       })
   in
-  Text_table.to_string_ansi (Text_table.make ~columns ~rows) |> print_endline;
+  Print_table.to_string_text (Print_table.make ~columns ~rows) |> print_endline;
   [%expect
     {|
     ┌────────┬─────────────────────┬─────────────┐

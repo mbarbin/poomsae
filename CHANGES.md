@@ -4,6 +4,7 @@
 
 ### Changed
 
+- Switch to standalone library `print-table`.
 - Split test package & use `expect_test_helpers_base`.
 
 ### Deprecated
