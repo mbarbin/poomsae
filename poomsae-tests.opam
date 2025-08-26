@@ -8,7 +8,7 @@ homepage: "https://github.com/mbarbin/poomsae"
 doc: "https://mbarbin.github.io/poomsae/"
 bug-reports: "https://github.com/mbarbin/poomsae/issues"
 depends: [
-  "dune" {>= "3.17"}
+  "dune" {>= "3.20"}
   "ocaml" {>= "5.2"}
   "ocamlformat" {with-dev-setup & = "0.27.0"}
   "base" {>= "v0.17"}
@@ -43,3 +43,4 @@ build: [
   ]
 ]
 dev-repo: "git+https://github.com/mbarbin/poomsae.git"
+x-maintenance-intent: ["(latest)"]
